@@ -12,8 +12,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "doc.build": "(cd ../sugar && npm run doc.build)",
-    "deploy": "npm run doc.build && npm run build && rsync -azP --delete ./dist/ fe0mt_blackbyte@fe0mt.ftp.infomaniak.com:sites/sugar.blackbyte.space/"
+    "doc.build": "(cd ../sugarcss && npm run doc.build)"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

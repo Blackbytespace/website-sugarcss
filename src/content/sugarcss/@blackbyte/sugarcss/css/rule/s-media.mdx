@@ -1,0 +1,91 @@
+---
+title: 's-media'
+namespace: '@blackbyte.sugarcss.css.rule'
+description: 'This function allows you to define media queries easily with these features:  - Define your own media queries like so: --s-media-desktop: 1024px 9999px; - Use defined media queries easily - Support for `dark` and `light` media queries - Support for &quot;color schema&quot; media queries like `cs-...` that will target elements inside the `cs-...` class - Support for &quot;theme&quot; media queries like `theme-...` that will target elements inside the `theme-...` class  Support for operators like:  - `lt-...`: lower than - `lte-...`: lower than or equal - `gt-...`: greater than - `gte-...`: greater than or equal - `e-...`: equal - `dark`: dark mode - `light`: light mode - &#39;theme-...&#39;: theme - `cs-...`: color schema'
+type: 'AtRule'
+status: 'stable'
+since: '0.0.1'
+platform: '[{"name":"css","description":""}]'
+author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@blackbyte.space"}'
+---
+<div class="docmap -mdx">
+# s-media
+<div class="docmap_metas">
+<div class="docmap_type"><span class="docmap_type-label">Type:</span><span class="docmap_type-value">AtRule</span></div>
+<div class="docmap_status"><span class="docmap_status-label">Status:</span><span class="docmap_status-value -stable">stable</span></div>
+<div class="docmap_since"><span class="docmap_since-label">Since:</span><span class="docmap_since-value">0.0.1</span></div>
+<div class="docmap_platform"><span class="docmap_platform-label">Platform:</span><span class="docmap_platform-value -css">css</span></div>
+</div>
+<div class="docmap_namespace">@blackbyte.sugarcss.css.rule</div>
+<div class="docmap_description typo-lead typo-format">
+This function allows you to define media queries easily with these features:
+
+- Define your own media queries like so: --s-media-desktop: 1024px 9999px;
+- Use defined media queries easily
+- Support for `dark` and `light` media queries
+- Support for &quot;color schema&quot; media queries like `cs-...` that will target elements inside the `cs-...` class
+- Support for &quot;theme&quot; media queries like `theme-...` that will target elements inside the `theme-...` class
+
+Support for operators like:
+
+- `lt-...`: lower than
+- `lte-...`: lower than or equal
+- `gt-...`: greater than
+- `gte-...`: greater than or equal
+- `e-...`: equal
+- `dark`: dark mode
+- `light`: light mode
+- &#39;theme-...&#39;: theme
+- `cs-...`: color schema
+</div>
+<div class="docmap_params">
+## Params
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">query<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The query to parse</p>
+</li>
+</ol>
+</div>
+<div class="docmap_return">
+## Return
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_default">-</span><span class="docmap_type">Css</span>
+<p class="docmap_description">The generated css</p>
+</li>
+</ol>
+</div>
+<div class="docmap_examples">
+## Example
+<s-code language="css" header>
+```css
+:root {
+   --s-media-phone: 0 767px;
+   --s-media-tablet: 768px 1023px;
+   --s-media-desktop: 1024px 9999px;
+}
+
+.my-element {
+   @media phone { ... }
+   @media lt-desktop { ... }
+   @media e-tablet { ... }
+   @media dark { ... }
+   @media gt-phone { ... }
+   @media theme-half-life { ... }
+   @media theme-moon { ... }
+}
+```
+</s-code>
+</div>
+<div class="docmap_author">
+## Author
+<ul class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">Olivier Bossel</span>
+<span class="docmap_email">olivier.bossel@gmail.com</span>
+<a href="https://hello@blackbyte.space" target="_blank" class="docmap_url">https://hello@blackbyte.space</a>
+</li>
+</ul>
+</div>
+</div>

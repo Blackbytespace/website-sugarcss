@@ -1,0 +1,80 @@
+---
+title: 's-shade'
+namespace: '@blackbyte.sugarcss.css.declaration'
+description: 'This variable allows you to declare a color shade easily and use it in your css. You can declare as many color shades as you want.  Available modifiers: - `lightness`: 0-100 - `lighten`: 0-100 - `darken`: 0-100 - `saturation`: 0-100 - `saturate`: 0-100 - `desaturate`: 0-100 - `hue`: 0-360 - `spin`: 0-360 - `alpha`: 0-1'
+type: 'Declaration'
+status: 'stable'
+since: '0.0.1'
+platform: '[{"name":"css","description":""}]'
+author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@blackbyte.space"}'
+---
+<div class="docmap -mdx">
+# s-shade
+<div class="docmap_metas">
+<div class="docmap_type"><span class="docmap_type-label">Type:</span><span class="docmap_type-value">Declaration</span></div>
+<div class="docmap_status"><span class="docmap_status-label">Status:</span><span class="docmap_status-value -stable">stable</span></div>
+<div class="docmap_since"><span class="docmap_since-label">Since:</span><span class="docmap_since-value">0.0.1</span></div>
+<div class="docmap_platform"><span class="docmap_platform-label">Platform:</span><span class="docmap_platform-value -css">css</span></div>
+</div>
+<div class="docmap_namespace">@blackbyte.sugarcss.css.declaration</div>
+<div class="docmap_description typo-lead typo-format">
+This variable allows you to declare a color shade easily and use it in your css.
+You can declare as many color shades as you want.
+
+Available modifiers:
+- `lightness`: 0-100
+- `lighten`: 0-100
+- `darken`: 0-100
+- `saturation`: 0-100
+- `saturate`: 0-100
+- `desaturate`: 0-100
+- `hue`: 0-360
+- `spin`: 0-360
+- `alpha`: 0-1
+</div>
+<div class="docmap_params">
+## Params
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">color<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The color value to declare</p>
+</li>
+</ol>
+</div>
+<div class="docmap_examples">
+## Example
+<s-code language="css" header>
+```css
+:root {
+   --s-color-main: #ff0000;
+
+   --s-shade-text: --lighten 20;
+   --s-shade-text-main: --lighten 35;
+   --s-shade-placeholder: --alpha 0.4;
+   --s-shade-foreground: --lighten 50;
+   --s-shade-background: --darken 40;
+   --s-shade-surface: --darken 40;
+   --s-shade-border: --alpha 0.2;
+   --s-shade-hover: --lighten 40;
+   --s-shade-active: --darken 10;
+}
+
+.my-element {
+  color: s-color(accent);
+  color: s-color(accent, test);
+  color: s-color(accent, --darken 20 --spin 30);
+}
+```
+</s-code>
+</div>
+<div class="docmap_author">
+## Author
+<ul class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">Olivier Bossel</span>
+<span class="docmap_email">olivier.bossel@gmail.com</span>
+<a href="https://hello@blackbyte.space" target="_blank" class="docmap_url">https://hello@blackbyte.space</a>
+</li>
+</ul>
+</div>
+</div>

@@ -1,0 +1,67 @@
+---
+title: 's-ease'
+namespace: '@blackbyte.sugarcss.css.function'
+description: 'This function allows you to apply an easing from the registered ones.'
+type: 'Function'
+status: 'stable'
+since: '0.0.1'
+platform: '[{"name":"css","description":""}]'
+author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@blackbyte.space"}'
+---
+<div class="docmap -mdx">
+# s-ease
+<div class="docmap_metas">
+<div class="docmap_type"><span class="docmap_type-label">Type:</span><span class="docmap_type-value">Function</span></div>
+<div class="docmap_status"><span class="docmap_status-label">Status:</span><span class="docmap_status-value -stable">stable</span></div>
+<div class="docmap_since"><span class="docmap_since-label">Since:</span><span class="docmap_since-value">0.0.1</span></div>
+<div class="docmap_platform"><span class="docmap_platform-label">Platform:</span><span class="docmap_platform-value -css">css</span></div>
+</div>
+<div class="docmap_namespace">@blackbyte.sugarcss.css.function</div>
+<div class="docmap_description typo-lead typo-format">
+This function allows you to apply an easing from the registered ones.
+</div>
+<div class="docmap_params">
+## Params
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">name<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The easing name you want to apply from registered ones</p>
+</li>
+</ol>
+</div>
+<div class="docmap_return">
+## Return
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_default">-</span><span class="docmap_type">Css</span>
+<p class="docmap_description">The generated css</p>
+</li>
+</ol>
+</div>
+<div class="docmap_examples">
+## Example
+<s-code language="css" header>
+```css
+:root {
+   --s-ease-default: cubic-bezier(0.745, 0, 0.18, 1);
+   --s-ease-in-out: cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.my-element {
+   transition: all 1s s-ease();
+   transition: all 1s s-ease(in-out);
+}
+```
+</s-code>
+</div>
+<div class="docmap_author">
+## Author
+<ul class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">Olivier Bossel</span>
+<span class="docmap_email">olivier.bossel@gmail.com</span>
+<a href="https://hello@blackbyte.space" target="_blank" class="docmap_url">https://hello@blackbyte.space</a>
+</li>
+</ul>
+</div>
+</div>

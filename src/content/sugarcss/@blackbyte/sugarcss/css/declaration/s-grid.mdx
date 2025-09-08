@@ -1,0 +1,62 @@
+---
+title: 's-grid'
+namespace: '@blackbyte.sugarcss.css.declaration'
+description: 'This variable allows you to register some grid layouts that you can use in your css. You can register as many grid as you want like in the example below.'
+type: 'Declaration'
+status: 'stable'
+since: '0.0.1'
+platform: '[{"name":"css","description":""}]'
+author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@blackbyte.space"}'
+---
+<div class="docmap -mdx">
+# s-grid
+<div class="docmap_metas">
+<div class="docmap_type"><span class="docmap_type-label">Type:</span><span class="docmap_type-value">Declaration</span></div>
+<div class="docmap_status"><span class="docmap_status-label">Status:</span><span class="docmap_status-value -stable">stable</span></div>
+<div class="docmap_since"><span class="docmap_since-label">Since:</span><span class="docmap_since-value">0.0.1</span></div>
+<div class="docmap_platform"><span class="docmap_platform-label">Platform:</span><span class="docmap_platform-value -css">css</span></div>
+</div>
+<div class="docmap_namespace">@blackbyte.sugarcss.css.declaration</div>
+<div class="docmap_description typo-lead typo-format">
+This variable allows you to register some grid layouts that you can use in your css.
+You can register as many grid as you want like in the example below.
+</div>
+<div class="docmap_params">
+## Params
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">layout<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The grid layout to register like &grave;1 1 2 &lowbar; 3 3 3&grave;</p>
+</li>
+<li class="docmap_item">
+<span class="docmap_name">gap<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The grid gap to register like &grave;20px&grave;</p>
+</li>
+</ol>
+</div>
+<div class="docmap_examples">
+## Example
+<s-code language="css" header>
+```css
+:root {
+   --s-grid-default: '1 1 2 _ 3 3 3' 20px;
+   --s-grid-2cols: '1 2' 40px;
+}
+
+.my-element {
+   @s-grid(default);
+}
+```
+</s-code>
+</div>
+<div class="docmap_author">
+## Author
+<ul class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">Olivier Bossel</span>
+<span class="docmap_email">olivier.bossel@gmail.com</span>
+<a href="https://hello@blackbyte.space" target="_blank" class="docmap_url">https://hello@blackbyte.space</a>
+</li>
+</ul>
+</div>
+</div>

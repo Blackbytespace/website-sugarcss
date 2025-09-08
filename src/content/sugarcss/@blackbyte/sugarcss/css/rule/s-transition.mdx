@@ -1,0 +1,68 @@
+---
+title: 's-transition'
+namespace: '@blackbyte.sugarcss.css.rule'
+description: 'This declaration allows you to apply a registered transition easily. To be able to use this, you need to register at least 1 transition like so:  - `--s-transition-...: all .3s ease-in-out;`'
+type: 'AtRule'
+status: 'stable'
+since: '0.0.1'
+platform: '[{"name":"css","description":""}]'
+author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@blackbyte.space"}'
+---
+<div class="docmap -mdx">
+# s-transition
+<div class="docmap_metas">
+<div class="docmap_type"><span class="docmap_type-label">Type:</span><span class="docmap_type-value">AtRule</span></div>
+<div class="docmap_status"><span class="docmap_status-label">Status:</span><span class="docmap_status-value -stable">stable</span></div>
+<div class="docmap_since"><span class="docmap_since-label">Since:</span><span class="docmap_since-value">0.0.1</span></div>
+<div class="docmap_platform"><span class="docmap_platform-label">Platform:</span><span class="docmap_platform-value -css">css</span></div>
+</div>
+<div class="docmap_namespace">@blackbyte.sugarcss.css.rule</div>
+<div class="docmap_description typo-lead typo-format">
+This declaration allows you to apply a registered transition easily.
+To be able to use this, you need to register at least 1 transition like so:
+
+- `--s-transition-...: all .3s ease-in-out;`
+</div>
+<div class="docmap_params">
+## Params
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">name<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The transition name you want to apply</p>
+</li>
+</ol>
+</div>
+<div class="docmap_return">
+## Return
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_default">-</span><span class="docmap_type">Css</span>
+<p class="docmap_description">The generated css</p>
+</li>
+</ol>
+</div>
+<div class="docmap_examples">
+## Example
+<s-code language="css" header>
+```css
+:root {
+   --s-transition-slow: all .3s ease-in-out;
+}
+
+.my-element {
+     @s-transition(slow);
+}
+```
+</s-code>
+</div>
+<div class="docmap_author">
+## Author
+<ul class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">Olivier Bossel</span>
+<span class="docmap_email">olivier.bossel@gmail.com</span>
+<a href="https://hello@blackbyte.space" target="_blank" class="docmap_url">https://hello@blackbyte.space</a>
+</li>
+</ul>
+</div>
+</div>

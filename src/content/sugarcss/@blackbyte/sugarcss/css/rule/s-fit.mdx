@@ -1,0 +1,69 @@
+---
+title: 's-fit'
+namespace: '@blackbyte.sugarcss.css.rule'
+description: 'This rule allows you to make the element fit the parent element easily. You can choose the `position` you want as well as if you want to `center` the element using `left: 50%`, `top: 50%` and `transform: translate(-50%, -50%)`.'
+type: 'AtRule'
+status: 'stable'
+since: '0.0.1'
+platform: '[{"name":"css","description":""}]'
+author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@blackbyte.space"}'
+---
+<div class="docmap -mdx">
+# s-fit
+<div class="docmap_metas">
+<div class="docmap_type"><span class="docmap_type-label">Type:</span><span class="docmap_type-value">AtRule</span></div>
+<div class="docmap_status"><span class="docmap_status-label">Status:</span><span class="docmap_status-value -stable">stable</span></div>
+<div class="docmap_since"><span class="docmap_since-label">Since:</span><span class="docmap_since-value">0.0.1</span></div>
+<div class="docmap_platform"><span class="docmap_platform-label">Platform:</span><span class="docmap_platform-value -css">css</span></div>
+</div>
+<div class="docmap_namespace">@blackbyte.sugarcss.css.rule</div>
+<div class="docmap_description typo-lead typo-format">
+This rule allows you to make the element fit the parent element easily.
+You can choose the `position` you want as well as if you want to `center` the element
+using `left: 50%`, `top: 50%` and `transform: translate(-50%, -50%)`.
+</div>
+<div class="docmap_params">
+## Params
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">position</span><span class="docmap_default">&quot;absolute&quot;</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The position you want to apply to the element&period; Can be &grave;absolute&grave;&comma; &grave;abs&grave;&comma; &grave;relative&grave;&comma; &grave;rel&grave;&comma; &grave;fixed&grave; or &grave;fix&grave;</p>
+</li>
+<li class="docmap_item">
+<span class="docmap_name">center</span><span class="docmap_default">false</span> <span class="docmap_type">Boolean</span>
+<p class="docmap_description">If you want to center the element with &grave;left&colon; 50&percnt;&grave;&comma; &grave;top&colon; 50&percnt;&grave; and &grave;transform&colon; translate&lpar;-50&percnt;&comma; -50&percnt;&rpar;&grave;</p>
+</li>
+</ol>
+</div>
+<div class="docmap_return">
+## Return
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_default">-</span><span class="docmap_type">Css</span>
+<p class="docmap_description">The generated css</p>
+</li>
+</ol>
+</div>
+<div class="docmap_examples">
+## Example
+<s-code language="css" header>
+```css
+.my-element {
+     @s-fit();
+     @s-fit(fixed);
+     @s-fit(abs, true);
+}
+```
+</s-code>
+</div>
+<div class="docmap_author">
+## Author
+<ul class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">Olivier Bossel</span>
+<span class="docmap_email">olivier.bossel@gmail.com</span>
+<a href="https://hello@blackbyte.space" target="_blank" class="docmap_url">https://hello@blackbyte.space</a>
+</li>
+</ul>
+</div>
+</div>

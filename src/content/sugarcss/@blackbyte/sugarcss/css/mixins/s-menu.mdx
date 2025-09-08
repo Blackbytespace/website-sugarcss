@@ -1,0 +1,58 @@
+---
+title: 's-menu'
+namespace: '@blackbyte.sugarcss.css.mixins'
+description: 'This mixin allows you to create a menu icon easily. Note that you can use the `s-menu-active` mixin to apply the active state to the menu icon. The color applyed to the menu icon is the `current` color.'
+type: 'Mixin'
+status: 'stable'
+since: '1.0.0'
+platform: '[{"name":"css","description":""}]'
+author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@blackbyte.space"}'
+---
+<div class="docmap -mdx">
+# s-menu
+<div class="docmap_metas">
+<div class="docmap_type"><span class="docmap_type-label">Type:</span><span class="docmap_type-value">Mixin</span></div>
+<div class="docmap_status"><span class="docmap_status-label">Status:</span><span class="docmap_status-value -stable">stable</span></div>
+<div class="docmap_since"><span class="docmap_since-label">Since:</span><span class="docmap_since-value">1.0.0</span></div>
+<div class="docmap_platform"><span class="docmap_platform-label">Platform:</span><span class="docmap_platform-value -css">css</span></div>
+</div>
+<div class="docmap_namespace">@blackbyte.sugarcss.css.mixins</div>
+<div class="docmap_description typo-lead typo-format">
+This mixin allows you to create a menu icon easily.
+Note that you can use the `s-menu-active` mixin to apply the active state to the menu icon.
+The color applyed to the menu icon is the `current` color.
+</div>
+<div class="docmap_return">
+## Return
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_default">-</span><span class="docmap_type">Css</span>
+<p class="docmap_description">The generated css</p>
+</li>
+</ol>
+</div>
+<div class="docmap_examples">
+## Example
+<s-code language="css" header>
+```css
+.my-menu {
+  @include s-menu;
+
+  &:hover {
+    @include s-menu-active;
+  }
+}
+```
+</s-code>
+</div>
+<div class="docmap_author">
+## Author
+<ul class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">Olivier Bossel</span>
+<span class="docmap_email">olivier.bossel@gmail.com</span>
+<a href="https://hello@blackbyte.space" target="_blank" class="docmap_url">https://hello@blackbyte.space</a>
+</li>
+</ul>
+</div>
+</div>

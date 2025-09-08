@@ -1,0 +1,70 @@
+---
+title: 's-font'
+namespace: '@blackbyte.sugarcss.css.rule'
+description: 'This rule allows you to apply a registered font easily with all his properties like: - `family`: The font family like &quot;sans-serif&quot;, &quot;serif&quot;, etc... - `weight`: The font weight like &quot;normal&quot;, &quot;bold&quot;, etc... - `style`: The font style like &quot;normal&quot;, &quot;italic&quot;, etc... - `variant`: The font variant like &quot;normal&quot;, &quot;small-caps&quot;, etc... - `letter-spacing`: The font letter spacing like &quot;normal&quot;, &quot;0.1em&quot;, etc...'
+type: 'AtRule'
+status: 'stable'
+since: '0.0.1'
+platform: '[{"name":"css","description":""}]'
+author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@blackbyte.space"}'
+---
+<div class="docmap -mdx">
+# s-font
+<div class="docmap_metas">
+<div class="docmap_type"><span class="docmap_type-label">Type:</span><span class="docmap_type-value">AtRule</span></div>
+<div class="docmap_status"><span class="docmap_status-label">Status:</span><span class="docmap_status-value -stable">stable</span></div>
+<div class="docmap_since"><span class="docmap_since-label">Since:</span><span class="docmap_since-value">0.0.1</span></div>
+<div class="docmap_platform"><span class="docmap_platform-label">Platform:</span><span class="docmap_platform-value -css">css</span></div>
+</div>
+<div class="docmap_namespace">@blackbyte.sugarcss.css.rule</div>
+<div class="docmap_description typo-lead typo-format">
+This rule allows you to apply a registered font easily with all his properties like:
+- `family`: The font family like &quot;sans-serif&quot;, &quot;serif&quot;, etc...
+- `weight`: The font weight like &quot;normal&quot;, &quot;bold&quot;, etc...
+- `style`: The font style like &quot;normal&quot;, &quot;italic&quot;, etc...
+- `variant`: The font variant like &quot;normal&quot;, &quot;small-caps&quot;, etc...
+- `letter-spacing`: The font letter spacing like &quot;normal&quot;, &quot;0.1em&quot;, etc...
+</div>
+<div class="docmap_params">
+## Params
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">name<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The font name you want to apply</p>
+</li>
+</ol>
+</div>
+<div class="docmap_return">
+## Return
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_default">-</span><span class="docmap_type">Css</span>
+<p class="docmap_description">The generated css</p>
+</li>
+</ol>
+</div>
+<div class="docmap_examples">
+## Example
+<s-code language="css" header>
+```css
+:root {
+   --s-font-title: VT323 600 normal normal 0.1em;
+}
+
+.my-element {
+     @s-font(title);
+}
+```
+</s-code>
+</div>
+<div class="docmap_author">
+## Author
+<ul class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">Olivier Bossel</span>
+<span class="docmap_email">olivier.bossel@gmail.com</span>
+<a href="https://hello@blackbyte.space" target="_blank" class="docmap_url">https://hello@blackbyte.space</a>
+</li>
+</ul>
+</div>
+</div>
