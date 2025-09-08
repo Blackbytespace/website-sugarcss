@@ -1,0 +1,185 @@
+@keyframes get-started-hotkey-p-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes get-started-hotkey-plus-pulse {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(25deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.get-started {
+  display: flex;
+  flex-direction: column;
+  gap: s-space(20);
+  padding-block: s-space(40);
+
+  @media md {
+    padding-block: s-space(10);
+  }
+
+  .get-started_header {
+    opacity: 0;
+  }
+
+  &.-in-viewport .get-started_header {
+    opacity: 1;
+    @s-transition (--delay 0.3s);
+  }
+  .get-started_steps {
+    display: flex;
+    flex-direction: column;
+    gap: s-space(20);
+  }
+
+  .get-started_step {
+    gap: s-space(10);
+    align-items: center;
+    @s-grid ('1 2');
+
+    @media sm {
+      @s-grid ('1 _ 2');
+    }
+  }
+
+  .get-started_step-metas {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    gap: s-space(5);
+    position: relative;
+    padding: s-space(10);
+    translate: 50px 0;
+
+    &:before {
+      content: '';
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(100% + 100px);
+      height: 100%;
+      pointer-events: none;
+      border: 1px solid transparent;
+      background: linear-gradient(
+          135deg,
+          s-color(accent, --alpha 1),
+          s-color(accent, --alpha 0) 40%
+        )
+        border-box; /*3*/
+      mask:
+        linear-gradient(#000 0 0) padding-box,
+        linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      @s-radius;
+      @s-transition;
+    }
+
+    &:after {
+      content: '';
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(100% + 100px);
+      height: 100%;
+      pointer-events: none;
+      border: 1px solid transparent;
+      background: linear-gradient(
+          270deg,
+          s-color(main, surface, --alpha 0),
+          s-color(main, surface, --alpha 1) 40%
+        )
+        border-box;
+      @s-radius;
+      @s-transition;
+    }
+  }
+
+  &.-in-viewport .get-started_step-metas {
+    opacity: 1;
+    translate: 0 0;
+    @s-transition (--delay calc(0.3s + 0.1s * var(--step-idx)));
+  }
+
+  .get-started_step-value {
+    opacity: 0;
+    translate: -50px 0;
+  }
+  &.-in-viewport .get-started_step-value {
+    opacity: 1;
+    translate: 0 0;
+    @s-transition (--delay calc(0.4s + 0.1s * var(--step-idx)));
+  }
+
+  .get-started_step-number {
+    position: relative;
+    color: s-color(complementary);
+  }
+
+  .get-started_hotkey {
+    background: s-color(main, surface);
+    padding: s-space(10);
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.4);
+    @s-transition (fast);
+    @s-radius;
+
+    &.-active {
+      color: white;
+    }
+  }
+
+  .get-started_hotkey-cmd {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-clip: text;
+      background: s-color(accent);
+      mix-blend-mode: darken;
+      @s-transition (fast);
+    }
+
+    .-active & {
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+
+  .get-started_hotkey-plus {
+    display: inline-block;
+    .-active & {
+      animation: get-started-hotkey-plus-pulse 1s infinite;
+    }
+  }
+
+  .get-started_hotkey-p {
+    .-active & {
+      color: s-color(complementary);
+      animation: get-started-hotkey-p-pulse 0.5s infinite;
+    }
+  }
+}

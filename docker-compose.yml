@@ -1,0 +1,11 @@
+---
+version: "3.9"
+services:
+  website-sugar:
+    image: lipanski/docker-static-website:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./dist:/home/static
+      # - ./httpd.conf:/home/static/httpd.conf:ro
