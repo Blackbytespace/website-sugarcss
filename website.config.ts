@@ -1,27 +1,28 @@
 import type { TWebsiteConfig } from '@blackbyte/website-common';
 
 export default {
-  title: 'Sugar',
-  description: 'High quality toolkit for web development',
-  install: 'npm i @blackbyte/sugar',
+  title: 'SugarCSS',
+  description:
+    'Add a sugar in your css with features like advanced color handling, media queries management, and a lot more...',
+  install: 'npm i @blackbyte/sugarcss',
   getStarted: {
     url: '/#get-started',
   },
   welcome: {
-    title: 'Sugar',
+    title: 'SugarCSS',
     description:
-      'The toolkit that you missed...<br />...like <span class="color-accent">a sugar in your coffee!</span>',
+      'CSS toolkit that you missed...<br />...like <span class="color-accent">a sugar in your coffee!</span>',
   },
   license: {
     name: 'MIT',
-    url: 'https://github.com/blackbytespace/monorepo/blob/main/packages/sugar/LICENSE.md',
+    url: 'https://github.com/blackbytespace/monorepo/blob/main/packages/sugarcss/LICENSE.md',
   },
   repository: {
-    name: 'Blackbyte Sugar',
-    url: 'https://github.com/Blackbytespace/sugar',
+    name: 'Blackbyte SugarCSS',
+    url: 'https://github.com/Blackbytespace/sugarcss',
   },
   og: {
-    imageUrl: 'https://cdn.blackbyte.space/img/blackbyte-sugar-og.png',
+    imageUrl: 'https://cdn.blackbyte.space/img/blackbyte-sugarcss-og.png',
   },
   menu: [
     {

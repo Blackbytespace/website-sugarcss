@@ -6,7 +6,7 @@ import docmapJson from '../../../docmap.json';
 import Layout from '../../layouts/main.astro';
 
 export async function getStaticPaths() {
-  const allDoc = await getCollection('sugar');
+  const allDoc = await getCollection('sugarcss');
   const params = [];
   for (let [i, docObj] of allDoc.entries()) {
     params.push({
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
   return params;
 }
 
-const allDoc = await getCollection('sugar'),
+const allDoc = await getCollection('sugarcss'),
   params = Astro.params;
 
 let DocItem;

@@ -4,7 +4,7 @@ import {
   type TCodeSamples,
   Welcome,
 } from '@blackbyte/website-common';
-import websiteConfig from '../../website-sugar.config';
+import websiteConfig from '../../website.config';
 import GetStarted from '../components/sections/getStarted/getStarted.astro';
 import Layout from '../layouts/main.astro';
 
@@ -238,7 +238,7 @@ timeAgo(1704067200000) // => "9 months ago"
 };
 ---
 
-<Layout pageTitle="Sugar">
+<Layout pageTitle="SugarCSS">
   <Welcome
     title={websiteConfig.welcome.title}
     description={websiteConfig.welcome.description}

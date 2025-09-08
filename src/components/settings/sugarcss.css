@@ -8,8 +8,8 @@
 
 :root {
   --s-color-main: #101010;
-  --s-color-accent: #8854f7;
-  --s-color-complementary: #00ffcc;
+  --s-color-accent: #f4ad20;
+  --s-color-complementary: #00fffb;
   --s-color-current: s-color(accent);
 
   --s-shade-text: --lightness 90;
