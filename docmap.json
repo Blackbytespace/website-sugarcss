@@ -3093,7 +3093,7 @@
                         "description": ""
                     }
                 ],
-                "description": "This mixin allows you to apply the destyle css with some additional\nreset rules like:\n- Reset `mark` background color\n- Font smoothing to &quot;antialiased&quot; for --webkit browsers\n- Apply `user-select: none` to all elements except `input`, `textarea`, and `[contenteditable]`\n- Remove the default outline",
+                "description": "This mixin allows you to apply the destyle css with some additional\nreset rules like:\n- Reset `mark` background color\n- Font smoothing to &quot;antialiased&quot; for --webkit browsers\n- Apply `user-select: none` to all elements except input, textarea, [contenteditable], code, h1, h2, h3, h4, h5, h6, p, td, th, blockquote, li, dl, dt, dd\n- Remove the default outline",
                 "namespace": "@blackbyte.sugarcss.css.mixins",
                 "status": "stable",
                 "example": [
@@ -3117,54 +3117,6 @@
                 "filename": "reset.css",
                 "extension": "css",
                 "relPath": "src/css/mixins/reset.css",
-                "children": {}
-            },
-            "@blackbyte.sugarcss.css.mixins.s-menu": {
-                "id": "@blackbyte.sugarcss.css.mixins.s-menu",
-                "name": "s-menu",
-                "type": {
-                    "types": [
-                        {
-                            "type": "Mixin"
-                        }
-                    ],
-                    "raw": "Mixin"
-                },
-                "return": {
-                    "type": {
-                        "types": [
-                            {
-                                "type": "Css"
-                            }
-                        ],
-                        "raw": "Css"
-                    },
-                    "description": "The generated css"
-                },
-                "platform": [
-                    {
-                        "name": "css",
-                        "description": ""
-                    }
-                ],
-                "description": "This mixin allows you to create a menu icon easily.\nNote that you can use the `s-menu-active` mixin to apply the active state to the menu icon.\nThe color applyed to the menu icon is the `current` color.",
-                "namespace": "@blackbyte.sugarcss.css.mixins",
-                "status": "stable",
-                "example": [
-                    {
-                        "language": "css",
-                        "code": ".my-menu {\n  @include s-menu;\n\n  &:hover {\n    @include s-menu-active;\n  }\n}"
-                    }
-                ],
-                "since": "1.0.0",
-                "author": {
-                    "name": "Olivier Bossel",
-                    "email": "olivier.bossel@gmail.com",
-                    "url": "https://hello@blackbyte.space"
-                },
-                "filename": "menu.css",
-                "extension": "css",
-                "relPath": "src/css/mixins/menu.css",
                 "children": {}
             },
             "@blackbyte.sugarcss.css.mixins.s-destyle": {
@@ -3219,6 +3171,54 @@
                 "filename": "destyle.css",
                 "extension": "css",
                 "relPath": "src/css/mixins/destyle.css",
+                "children": {}
+            },
+            "@blackbyte.sugarcss.css.mixins.s-burger-menu": {
+                "id": "@blackbyte.sugarcss.css.mixins.s-burger-menu",
+                "name": "s-burger-menu",
+                "type": {
+                    "types": [
+                        {
+                            "type": "Mixin"
+                        }
+                    ],
+                    "raw": "Mixin"
+                },
+                "return": {
+                    "type": {
+                        "types": [
+                            {
+                                "type": "Css"
+                            }
+                        ],
+                        "raw": "Css"
+                    },
+                    "description": "The generated css"
+                },
+                "platform": [
+                    {
+                        "name": "css",
+                        "description": ""
+                    }
+                ],
+                "description": "This mixin allows you to create a burger menu icon easily.\nNote that you can use the `s-menu-active` mixin to apply the active state to the menu icon.\nThe color applyed to the menu icon is the `current` color.",
+                "namespace": "@blackbyte.sugarcss.css.mixins",
+                "status": "stable",
+                "example": [
+                    {
+                        "language": "css",
+                        "code": ".my-menu {\n  @include s-burger-menu;\n\n  &:hover {\n    @include s-burger-menu-active;\n  }\n}"
+                    }
+                ],
+                "since": "1.0.0",
+                "author": {
+                    "name": "Olivier Bossel",
+                    "email": "olivier.bossel@gmail.com",
+                    "url": "https://hello@blackbyte.space"
+                },
+                "filename": "burgerMenu.css",
+                "extension": "css",
+                "relPath": "src/css/mixins/burgerMenu.css",
                 "children": {}
             }
         }

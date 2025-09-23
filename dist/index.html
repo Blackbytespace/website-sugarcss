@@ -1,0 +1,468 @@
+<!DOCTYPE html><script type="module" src="/_astro/main.astro_astro_type_script_index_0_lang.VcBozI4a.js"></script> <script type="module" src="/_astro/main.astro_astro_type_script_index_0_lang.BEAzVV-w.js"></script> <html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta property="og:site_name" content="Blackbyte - Welcome"><meta name="description" content="Add a sugar in your css with features like advanced color handling, media queries management, and a lot more..."><meta name="generator" content="Astro v5.13.5"><meta property="og:description" content="Add a sugar in your css with features like advanced color handling, media queries management, and a lot more..."><meta property="og:locale" content="en_US"><meta property="og:title"><meta property="og:type" content="article"><meta property="og:image" content="https://raw.githubusercontent.com/Blackbytespace/sugarcss/refs/heads/main/assets/blackbyte-sugarcss-og.png"><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/favicon/site.webmanifest"><title>
+      Blackbyte - Welcome
+    </title><meta name="posthog" data-posthog="{&#34;projectApiKey&#34;:&#34;phc_t5yvxkWJDtICl40OBt4QfJmYgsT8CHfC44uNSOmyar3&#34;}"><script>
+  const $posthog = document.querySelector('meta[name="posthog"]');
+  const posthogConfig = JSON.parse($posthog.dataset.posthog ?? '{}');
+
+  if (!posthogConfig.projectApiKey) {
+    console.warn('PostHog projectApiKey is not defined');
+  } else {
+    !(function (t, e) {
+      var o, n, p, r;
+      e.__SV ||
+        ((window.posthog = e),
+        (e._i = []),
+        (e.init = function (i, s, a) {
+          function g(t, e) {
+            var o = e.split('.');
+            2 == o.length && ((t = t[o[0]]), (e = o[1])),
+              (t[e] = function () {
+                t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+              });
+          }
+          ((p = t.createElement('script')).type = 'text/javascript'),
+            (p.crossOrigin = 'anonymous'),
+            (p.async = !0),
+            (p.src = s.api_host + '/static/array.js'),
+            (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(
+              p,
+              r,
+            );
+          var u = e;
+          for (
+            void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
+              u.people = u.people || [],
+              u.toString = function (t) {
+                var e = 'posthog';
+                return (
+                  'posthog' !== a && (e += '.' + a), t || (e += ' (stub)'), e
+                );
+              },
+              u.people.toString = function () {
+                return u.toString(1) + '.people (stub)';
+              },
+              o =
+                'capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId'.split(
+                  ' ',
+                ),
+              n = 0;
+            n < o.length;
+            n++
+          )
+            g(u, o[n]);
+          e._i.push([i, s, a]);
+        }),
+        (e.__SV = 1));
+    })(document, window.posthog || []);
+    posthog.init(posthogConfig.projectApiKey, {
+      api_host: 'https://eu.i.posthog.com',
+      person_profiles: 'always',
+    });
+  }
+</script><style>.s-advanced-select {
+  flex-direction: column;
+  display: flex;
+  position: relative;
+}
+
+.s-advanced-select .s-advanced-select_keywords {
+  flex-grow: 0;
+  width: 100%;
+}
+
+.s-advanced-select .s-advanced-select_before {
+  flex-grow: 0;
+  width: 100%;
+}
+
+.s-advanced-select .s-advanced-select_after {
+  flex-grow: 0;
+  width: 100%;
+}
+
+.s-advanced-select:not([inline]) .s-advanced-select_dropdown {
+  z-index: 10;
+  opacity: .0001;
+  pointer-events: none;
+  flex-direction: column;
+  min-width: 100%;
+  max-width: calc(100vw - 6.25rem);
+  margin: 1.25rem 0;
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  overflow: hidden;
+  transform: translateX(-50%);
+}
+
+.s-advanced-select:focus-within .s-advanced-select_dropdown {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.s-advanced-select.-top .s-advanced-select_dropdown {
+  top: auto;
+  bottom: 100%;
+}
+
+.s-advanced-select .s-advanced-select_input:focus + .s-advanced-select_dropdown {
+  opacity: 1;
+  pointer-events: all !important;
+}
+
+.s-advanced-select .s-advanced-select_dropdown:focus {
+  opacity: 1;
+  pointer-events: all !important;
+}
+
+.s-advanced-select .s-advanced-select_dropdown:focus-within {
+  opacity: 1;
+  pointer-events: all !important;
+}
+
+.s-advanced-select:not([inline]) .s-advanced-select_items {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.s-advanced-select .s-advanced-select_item {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  display: none;
+  position: relative;
+}
+
+.s-advanced-select .s-advanced-select_item.-match {
+  display: block;
+}
+
+.s-advanced-select:not([interactive]) .s-advanced-select_item {
+  cursor: pointer;
+}
+
+.s-advanced-select:not([interactive]) .s-advanced-select_item * {
+  pointer-events: none;
+}
+</style>
+<link rel="stylesheet" href="/_astro/main.BlePcQLE.css">
+<link rel="stylesheet" href="/_astro/index.WmyBjFSP.css">
+<link rel="stylesheet" href="/_astro/_namespace_.CP0SkrGP.css">
+<link rel="stylesheet" href="/_astro/index.D6osPxL7.css">
+<link rel="stylesheet" href="/_astro/index.BtEuwjIG.css"></head> <body>  <main class="main"> <header class="header"> <div class="container"> <div class="header_brand"> <a href="/" title="SugarCSS"> <div class="header_logo"> <svg viewBox="0 0 559 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M518.245 47.6066C518.445 52.5399 519.978 56.5066 522.845 59.5066C525.711 62.5066 529.711 64.0066 534.845 64.0066C537.178 64.0066 539.211 63.7399 540.945 63.2066C542.678 62.6733 544.145 61.9399 545.345 61.0066C546.611 60.0733 547.611 59.0066 548.345 57.8066C549.145 56.5399 549.778 55.2066 550.245 53.8066L557.645 55.8066C556.245 60.4066 553.645 64.1733 549.845 67.1066C546.111 69.9733 541.045 71.4066 534.645 71.4066C531.111 71.4066 527.845 70.8066 524.845 69.6066C521.911 68.3399 519.378 66.5733 517.245 64.3066C515.111 62.0399 513.445 59.3399 512.245 56.2066C511.045 53.0733 510.445 49.6066 510.445 45.8066V43.4066C510.445 39.9399 511.045 36.7066 512.245 33.7066C513.511 30.7066 515.245 28.1399 517.445 26.0066C519.645 23.8066 522.211 22.1066 525.145 20.9066C528.145 19.6399 531.378 19.0066 534.845 19.0066C538.911 19.0066 542.411 19.7733 545.345 21.3066C548.345 22.7733 550.778 24.6066 552.645 26.8066C554.578 29.0066 555.978 31.4066 556.845 34.0066C557.778 36.6066 558.245 39.0066 558.245 41.2066V47.6066H518.245ZM534.845 26.4066C532.645 26.4066 530.578 26.7733 528.645 27.5066C526.778 28.1733 525.111 29.1399 523.645 30.4066C522.245 31.6733 521.078 33.1733 520.145 34.9066C519.278 36.5733 518.711 38.4066 518.445 40.4066H550.445C550.311 38.2733 549.778 36.3399 548.845 34.6066C547.978 32.8733 546.811 31.4066 545.345 30.2066C543.945 29.0066 542.311 28.0733 540.445 27.4066C538.645 26.7399 536.778 26.4066 534.845 26.4066Z"
+        fill="black" />
+    <path
+        d="M463.614 20.4066H479.214V0.0065918H487.014V20.4066H506.214V27.6066H487.014V59.8066C487.014 61.8066 487.914 62.8066 489.714 62.8066H503.814V70.0066H486.914C484.647 70.0066 482.781 69.2733 481.314 67.8066C479.914 66.3399 479.214 64.4733 479.214 62.2066V27.6066H463.614V20.4066Z"
+        fill="black" />
+    <path
+        d="M450.083 61.0065H448.883C447.283 64.2065 445.183 66.7398 442.583 68.6065C439.983 70.4732 436.683 71.4065 432.683 71.4065C429.95 71.4065 427.417 70.9398 425.083 70.0065C422.817 69.1398 420.85 67.8065 419.183 66.0065C417.583 64.2065 416.317 61.9732 415.383 59.3065C414.517 56.6398 414.083 53.5398 414.083 50.0065V20.4065H421.883V49.0065C421.883 54.2065 422.95 58.0065 425.083 60.4065C427.217 62.8065 430.483 64.0065 434.883 64.0065C439.617 64.0065 443.317 62.4065 445.983 59.2065C448.717 55.9398 450.083 51.6065 450.083 46.2065V20.4065H457.883V82.2065C457.883 84.4732 457.15 86.3398 455.683 87.8065C454.283 89.2732 452.45 90.0065 450.183 90.0065H421.883V82.8065H447.383C449.183 82.8065 450.083 81.8065 450.083 79.8065V61.0065Z"
+        fill="black" />
+    <path
+        d="M362.853 70.0066H355.053V0.0065918H362.853V28.2066H364.053C365.786 25.2066 368.186 22.9399 371.253 21.4066C374.32 19.8066 377.653 19.0066 381.253 19.0066C384.32 19.0066 387.22 19.5733 389.953 20.7066C392.686 21.8399 395.086 23.4733 397.153 25.6066C399.286 27.7399 400.953 30.3733 402.153 33.5066C403.42 36.6399 404.053 40.2066 404.053 44.2066V46.2066C404.053 50.2733 403.453 53.8733 402.253 57.0066C401.053 60.1399 399.386 62.7733 397.253 64.9066C395.186 67.0399 392.753 68.6733 389.953 69.8066C387.153 70.8733 384.186 71.4066 381.053 71.4066C379.453 71.4066 377.82 71.2066 376.153 70.8066C374.486 70.4733 372.886 69.9399 371.353 69.2066C369.886 68.4066 368.52 67.4733 367.253 66.4066C365.986 65.2733 364.92 63.9399 364.053 62.4066H362.853V70.0066ZM379.453 64.0066C381.853 64.0066 384.053 63.6066 386.053 62.8066C388.053 61.9399 389.786 60.7399 391.253 59.2066C392.786 57.6733 393.953 55.8066 394.753 53.6066C395.62 51.4066 396.053 48.9399 396.053 46.2066V44.2066C396.053 41.5399 395.62 39.1399 394.753 37.0066C393.953 34.8066 392.786 32.9399 391.253 31.4066C389.786 29.8066 388.02 28.5733 385.953 27.7066C383.953 26.8399 381.786 26.4066 379.453 26.4066C377.12 26.4066 374.953 26.8733 372.953 27.8066C370.953 28.6733 369.186 29.9066 367.653 31.5066C366.186 33.1066 365.02 35.0399 364.153 37.3066C363.286 39.5066 362.853 41.9399 362.853 44.6066V45.8066C362.853 48.5399 363.286 51.0399 364.153 53.3066C365.02 55.5066 366.186 57.4066 367.653 59.0066C369.186 60.6066 370.953 61.8399 372.953 62.7066C374.953 63.5733 377.12 64.0066 379.453 64.0066Z"
+        fill="black" />
+    <path
+        d="M315.423 41.0066H317.123L336.023 20.4066H345.623V21.0066L325.023 43.7066V45.5066L348.023 69.4066V70.0066H338.423L317.323 48.2066H315.423V70.0066H307.623V0.0065918H315.423V41.0066Z"
+        fill="black" />
+    <path
+        d="M298.792 52.4066C298.259 55.1399 297.326 57.6733 295.992 60.0066C294.726 62.3399 293.092 64.3733 291.092 66.1066C289.092 67.7733 286.759 69.0733 284.092 70.0066C281.425 70.9399 278.459 71.4066 275.192 71.4066C271.726 71.4066 268.426 70.8399 265.292 69.7066C262.226 68.5733 259.526 66.9399 257.192 64.8066C254.859 62.6066 252.992 59.9399 251.592 56.8066C250.259 53.6733 249.592 50.0733 249.592 46.0066V44.8066C249.592 40.8066 250.259 37.2066 251.592 34.0066C252.992 30.8066 254.859 28.1066 257.192 25.9066C259.526 23.7066 262.226 22.0066 265.292 20.8066C268.426 19.6066 271.726 19.0066 275.192 19.0066C278.326 19.0066 281.226 19.4733 283.892 20.4066C286.559 21.3399 288.892 22.6733 290.892 24.4066C292.959 26.0733 294.625 28.0733 295.892 30.4066C297.226 32.7399 298.126 35.2733 298.592 38.0066L290.792 39.8066C290.592 38.0733 290.092 36.4066 289.292 34.8066C288.559 33.1399 287.526 31.7066 286.192 30.5066C284.926 29.2399 283.359 28.2399 281.492 27.5066C279.626 26.7733 277.459 26.4066 274.992 26.4066C272.592 26.4066 270.326 26.8733 268.192 27.8066C266.126 28.6733 264.292 29.9399 262.692 31.6066C261.092 33.2066 259.825 35.1399 258.892 37.4066C258.025 39.6733 257.592 42.1399 257.592 44.8066V46.0066C257.592 48.8066 258.025 51.3399 258.892 53.6066C259.825 55.8066 261.092 57.6733 262.692 59.2066C264.292 60.7399 266.159 61.9399 268.292 62.8066C270.426 63.6066 272.726 64.0066 275.192 64.0066C277.659 64.0066 279.792 63.6399 281.592 62.9066C283.459 62.1066 285.026 61.1066 286.292 59.9066C287.626 58.6399 288.659 57.2066 289.392 55.6066C290.192 54.0066 290.726 52.3399 290.992 50.6066L298.792 52.4066Z"
+        fill="black" />
+    <path
+        d="M232.162 61.6066H230.962C229.362 64.9399 227.128 67.4066 224.262 69.0066C221.462 70.6066 218.495 71.4066 215.362 71.4066C212.095 71.4066 209.062 70.8733 206.262 69.8066C203.462 68.6733 200.995 67.0399 198.862 64.9066C196.795 62.7066 195.162 60.0399 193.962 56.9066C192.762 53.7733 192.162 50.1399 192.162 46.0066V44.4066C192.162 40.3399 192.762 36.7399 193.962 33.6066C195.162 30.4733 196.795 27.8399 198.862 25.7066C200.995 23.5066 203.462 21.8399 206.262 20.7066C209.062 19.5733 212.028 19.0066 215.162 19.0066C218.562 19.0066 221.628 19.7733 224.362 21.3066C227.162 22.7733 229.362 25.0733 230.962 28.2066H232.162V20.4066H239.962V59.8066C239.962 61.8066 240.862 62.8066 242.662 62.8066H245.162V70.0066H239.862C237.595 70.0066 235.728 69.2733 234.262 67.8066C232.862 66.3399 232.162 64.4733 232.162 62.2066V61.6066ZM216.162 64.0066C218.495 64.0066 220.628 63.5733 222.562 62.7066C224.562 61.8399 226.262 60.6066 227.662 59.0066C229.062 57.4066 230.162 55.5066 230.962 53.3066C231.762 51.0399 232.162 48.5399 232.162 45.8066V44.6066C232.162 41.9399 231.762 39.5066 230.962 37.3066C230.162 35.0399 229.028 33.1066 227.562 31.5066C226.162 29.9066 224.462 28.6733 222.462 27.8066C220.528 26.8733 218.428 26.4066 216.162 26.4066C213.828 26.4066 211.695 26.8399 209.762 27.7066C207.828 28.5733 206.128 29.8066 204.662 31.4066C203.262 32.9399 202.162 34.8399 201.362 37.1066C200.562 39.3066 200.162 41.7399 200.162 44.4066V46.0066C200.162 51.6733 201.628 56.1066 204.562 59.3066C207.562 62.4399 211.428 64.0066 216.162 64.0066Z"
+        fill="black" />
+    <path
+        d="M146.931 62.8066H164.931V7.20659H147.531V0.0065918H172.731V62.8066H190.731V70.0066H146.931V62.8066Z"
+        fill="black" />
+    <path
+        d="M89.7007 62.2066H95.7007V7.80659H89.7007V0.0065918H118.001C121.334 0.0065918 124.267 0.473256 126.801 1.40659C129.401 2.33992 131.567 3.60659 133.301 5.2066C135.101 6.8066 136.434 8.73993 137.301 11.0066C138.234 13.2066 138.701 15.6066 138.701 18.2066V19.4066C138.701 21.3399 138.401 23.1066 137.801 24.7066C137.201 26.3066 136.367 27.7399 135.301 29.0066C134.234 30.2733 132.967 31.3733 131.501 32.3066C130.101 33.1733 128.567 33.8399 126.901 34.3066V35.5066C130.234 36.4399 133.034 38.2399 135.301 40.9066C137.567 43.5066 138.701 46.7066 138.701 50.5066V51.7066C138.701 54.3066 138.234 56.7399 137.301 59.0066C136.434 61.2066 135.101 63.1399 133.301 64.8066C131.567 66.4066 129.401 67.6733 126.801 68.6066C124.267 69.5399 121.334 70.0066 118.001 70.0066H89.7007V62.2066ZM104.101 62.2066H117.401C121.334 62.2066 124.534 61.2399 127.001 59.3066C129.467 57.3066 130.701 54.5733 130.701 51.1066V50.5066C130.701 46.9066 129.534 44.0733 127.201 42.0066C124.867 39.8733 121.701 38.8066 117.701 38.8066H104.101V62.2066ZM104.101 31.0066H117.701C121.701 31.0066 124.867 29.9733 127.201 27.9066C129.534 25.8399 130.701 23.0066 130.701 19.4066V18.8066C130.701 15.4066 129.467 12.7399 127.001 10.8066C124.534 8.80659 121.334 7.80659 117.401 7.80659H104.101V31.0066Z"
+        fill="black" />
+    <rect x="46.6666" y="46.6667" width="23.3333" height="23.3333" fill="black" />
+    <rect x="23.3334" y="46.6667" width="23.3333" height="23.3333" fill="black" />
+    <rect y="46.6667" width="23.3333" height="23.3333" fill="black" />
+    <rect x="46.6666" y="23.3333" width="23.3333" height="23.3333" fill="black" />
+    <rect x="23.3334" y="23.3333" width="23.3333" height="23.3333" fill="black" />
+    <rect x="46.6666" width="23.3333" height="23.3333" fill="black" />
+    <rect x="23.3334" width="23.3333" height="23.3333" fill="black" />
+    <rect width="23.3333" height="23.3333" fill="black" />
+</svg> </div> <div class="header_picto"> <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="46.6666" y="46.6667" width="23.3333" height="23.3333" fill="black"/>
+<rect x="23.3334" y="46.6667" width="23.3333" height="23.3333" fill="black"/>
+<rect y="46.6667" width="23.3333" height="23.3333" fill="black"/>
+<rect x="46.6666" y="23.3333" width="23.3333" height="23.3333" fill="black"/>
+<rect x="23.3334" y="23.3333" width="23.3333" height="23.3333" fill="black"/>
+<rect x="46.6666" width="23.3333" height="23.3333" fill="black"/>
+<rect x="23.3334" width="23.3333" height="23.3333" fill="black"/>
+<rect width="23.3333" height="23.3333" fill="black"/>
+</svg>
+ </div> <h1 class="header_title font-family-brand"> SugarCSS </h1> </a> </div> <div class="header_search"> <script type="module" src="/_astro/search.astro_astro_type_script_index_0_lang.CE7XVfdz.js"></script> <form class="search"> <script style="application/json">(function(){const groups = [{"type":"group","label":"Documentation","items":[{"id":"get-started","label":"Get started","description":"Quick start using @blackbyte/sugarcss","value":"get-started","slug":"/#get-started","preventSet":true},{"id":"issues","label":"Declare an issue","description":"Report a bug or request a feature","value":"issue","url":"https://github.com/Blackbytespace/sugarcss/issues","preventSet":true},{"id":"repository","label":"GitHub repository","description":"Browse the source code on GitHub","value":"repository","url":"https://github.com/Blackbytespace/sugarcss","preventSet":true},{"id":"license","label":"License","description":"View the license information","value":"license","url":"https://github.com/Blackbytespace/sugarcss/blob/main/LICENSE.md","preventSet":true}]}];
+
+    window.menuGroups = groups;
+  })();</script> <lo-search inline="true"> <input type="search" class="_input form-input" placeholder="Search ( CMD + P )"> </lo-search> </form> </div> <div class="header_metas"> <p class="header_version"> v1.0.0-<span class="header_version-pseudo">beta.1</span> </p> <a class="header_license" href="https://github.com/Blackbytespace/sugarcss/blob/main/LICENSE.md" target="_blank" title="MIT"> MIT </a> <a class="header_github" href="https://github.com/Blackbytespace/sugarcss" title="Blackbyte SugarCSS" target="_blank"> <s-icon name="github" provider="pixelarticons" type="brands"></s-icon> </a> </div> </div> </header> <div class="main_body"> <div class="container">   <section class="welcome"> <div class="welcome_earth"></div> <div class="welcome_animation"> <div class="welcome_animation-picto"> <div class="blackbyte-picto -white"> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> </div> <div class="blackbyte-picto -black"> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> </div> </div> <div class="welcome_animation-picto-white"> <div class="blackbyte-picto"> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> </div> </div> </div> <div class="welcome_header"> <p class="welcome_description"> The CSS toolkit that you missed...<br />...like <span class="color-accent">a sugar in your coffee!</span> </p> <div class="welcome_install"> npm i @blackbyte/sugarcss <s-icon name="clipboard" provider="pixelarticons"></s-icon> <s-icon name="check" provider="pixelarticons"></s-icon> </div> <div class="welcome_actions"> <a href="https://github.com/Blackbytespace/sugarcss/archive/refs/heads/main.zip" title="Download source code" target="_blank"> <s-icon name="download" provider="pixelarticons"></s-icon> </a> <a id="welcome-get-started" class="welcome_get-started button" href="/#get-started" title="Get started">
+Get started
+</a> <a href="https://github.com/Blackbytespace/sugarcss" title="Blackbyte on GitHub" target="_blank"> <s-icon name="github" provider="pixelarticons"></s-icon> </a> </div> <p class="welcome_made"> Made with <span class="color-accent">♥</span> by Blackbyte<br />on top of <a class="color-accent" href="https://lightningcss.dev" title="Lightningcss" target="_blank">Lightningcss</a> </p> </div> </section> <script type="module" src="/_astro/welcome.astro_astro_type_script_index_0_lang.zITCMBDh.js"></script> <section class="code-samples"> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="RCiaV" prefix="s0" component-url="/_astro/codeTabs.c1pI_Z5Z.js" component-export="default" renderer-url="/_astro/client.BPqZ3pGp.js" props="{&quot;tabs&quot;:[1,[[0,{&quot;title&quot;:[0,&quot;Color management&quot;],&quot;description&quot;:[0,&quot;Define your colors and shades in your config and use them throughout your CSS.&quot;],&quot;language&quot;:[0,&quot;css&quot;],&quot;code&quot;:[0,&quot;/**\n * Declare your colors as simple css variables\n * and use them across your code with the s-color() function.\n * Shades are some variant of your colors that you can define\n * and use them as well as the second parameter of the s-color() function.\n */\n:root {\n  --s-color-main: #101010;\n  --s-color-accent: #f4ad20;\n  --s-color-complementary: #00fffb;\n\n  --s-shade-foreground: --lightness 90;      \n}\n  \n.btn {\n  background: s-color(main);\n  color: s-color(main, foreground);\n  \n  &amp;:hover {\n    background: s-color(accent);\n    color: s-color(accent, foreground);\n  }\n}&quot;]}],[0,{&quot;title&quot;:[0,&quot;Color manipulation&quot;],&quot;description&quot;:[0,&quot;Apply some color modifiers through shades of inline&quot;],&quot;language&quot;:[0,&quot;css&quot;],&quot;code&quot;:[0,&quot;/**\n * Manipulate with ease your colors by applying some modifiers through\n * shades or inline as the second parameter of the s-color() function.\n * \n * --lighten &lt;percentage&gt;\n * --darken &lt;percentage&gt;\n * --saturate &lt;percentage&gt;\n * --desaturate &lt;percentage&gt;\n * --alpha &lt;percentage&gt;\n * --spin &lt;degrees&gt;\n */\n:root {\n  --s-color-main: #101010;\n  --s-color-accent: #f4ad20;\n\n  --s-shade-foreground: --lightness 90;      \n}\n.btn {\n  color: s-color(main, foreground);\n  \n  &amp;:hover {\n    color: s-color(accent, --darken 10 --saturate 20);\n  }\n}&quot;]}],[0,{&quot;title&quot;:[0,&quot;The `current` color&quot;],&quot;description&quot;:[0,&quot;Use the \&quot;current\&quot; color in your code as if it was the \&quot;currentColor\&quot; CSS variable.&quot;],&quot;language&quot;:[0,&quot;css&quot;],&quot;code&quot;:[0,&quot;/**\n * The \&quot;current\&quot; color is a special color that represents the current color of the element.\n * You can apply it to any property you want and then,\n * map the color you want to the \&quot;current\&quot; color like in this example.\n */\n:root {\n  --s-color-main: #101010;\n  --s-color-accent: #f4ad20;\n  --s-color-complementary: #00fffb;\n  --s-color-current: s-color(main);\n}\n  \n.btn {\n  background: s-color(current);\n\n  &amp;:hover {\n    background: s-color(current, --lighten 10);\n  }\n\n  &amp;.-accent {\n    @s-map-color(accent);\n  }\n  &amp;.-complementary {\n    @s-map-color(complementary);\n  }\n}&quot;]}],[0,{&quot;title&quot;:[0,&quot;Typography management&quot;],&quot;description&quot;:[0,&quot;Define your typography styles in your config and use them throughout your CSS.&quot;],&quot;language&quot;:[0,&quot;css&quot;],&quot;code&quot;:[0,&quot;/**\n * Declare your typography styles as simple css variables\n */\n:root {\n  /* font families */\n  --s-font-family-sans: &#39;Roboto&#39;, sans-serif;\n  --s-font-family-serif: &#39;Merriweather&#39;, serif;\n\n  /* fonts */\n  --s-font-default: s-font-family(sans);\n  --s-font-lead: s-font-family(serif);\n\n  /* font sizes */\n  --s-size-h1: 32px;\n  --s-size-lead: 20px;\n  --s-size-p: 16px;\n\n  /* typography */\n  --s-typo-h1: s-font(title) s-size(h1) 1.4 0.1em uppercase underline;\n  --s-typo-lead: s-font(lead) s-size(lead) 1.6 0.05em;\n  --s-typo-p: s-font(default) s-size(p) 1.4;\n}\n\n/**\n * Apply your typography styles to your elements with the @s-typo rule\n */\n.my-title {\n  @s-typo(h1);\n}\n.my-paragraph {\n  @s-typo(p);\n}\n&quot;]}],[0,{&quot;title&quot;:[0,&quot;Spaces management&quot;],&quot;description&quot;:[0,&quot;Define your spaces in your config and use them throughout your CSS.&quot;],&quot;language&quot;:[0,&quot;css&quot;],&quot;code&quot;:[0,&quot;/**\n * Declare your spacing styles as simple css variables\n */\n:root {\n  --s-space-small: 10px;\n  --s-space-medium: 20px;\n  --s-space-large: 40px;\n}\n\n/**\n * Apply your spacing styles to your elements with the `s-space` function\n */\n.my-element {\n  padding: s-space(small); // 10px\n  padding: s-space(medium); // 20px\n  padding: s-space(large); // 40px\n}\n&quot;]}],[0,{&quot;title&quot;:[0,&quot;Media queries like a boss&quot;],&quot;description&quot;:[0,&quot;Write your media queries in a more efficient way with the @s-media rule.&quot;],&quot;language&quot;:[0,&quot;css&quot;],&quot;code&quot;:[0,&quot;/**\n* Declare your breakpoints in your config through css variables\n* and use them throughout your CSS with the @s-media rule.\n* Special prefixes are available to write quick and efficient media queries.\n*/\n:root {\n  --s-setting-mobile-first: true;\n  --s-media-xs: 0px 474px;\n  --s-media-sm: 475px 639px;\n  --s-media-md: 640px 767px;\n  --s-media-lg: 768px 1023px;\n  --s-media-xl: 1024px;\n}\n.my-element {\n  background: red;\n\n  @media sm {\n    background: blue;\n  }\n  @media md {\n    background: green;\n  }\n  /**\n   * Special prefixes are available:\n   * e- : equal\n   * lt- : less than\n   * gt- : greater than\n   * lte- : less than or equal to\n   * gte- : greater than or equal to\n   */\n  @media lt-lg {\n    background: yellow;\n  }\n}&quot;]}],[0,{&quot;title&quot;:[0,&quot;Grid? You said grid?...&quot;],&quot;description&quot;:[0,&quot;Declare with ease complexe grid layouts and apply them as easily on your elements.&quot;],&quot;language&quot;:[0,&quot;css&quot;],&quot;code&quot;:[0,&quot;/**\n * Declare your grid layouts in your config through css variables\n * --s-grid-&lt;name&gt;: &#39;&lt;template&gt;&#39; &lt;gap&gt;;\n */\n:root {\n  --s-grid-mygrid: &#39;1 1 2 _ 3 3 3&#39; 20px;\n}\n/**\n * Apply your grid layouts to your elements with the @s-grid rule\n */\n.my-element {\n  /* registered grid */\n  @s-grid (mygrid);\n  /* custom grid */\n  @s-grid (&#39;1 1 2&#39;, 20px);\n}\n/**\n * Generated grid\n */\n|------------|------------|------------|\n| Area #1                 | Area #2    |\n|------------|------------|------------|\n| Area #3                              |\n|------------|------------|------------|\n/**\n * The HTML structure\n */\n&lt;div class=\&quot;s-grid-mygrid\&quot;&gt;\n  &lt;div&gt;Area #1&lt;/div&gt;\n  &lt;div&gt;Area #2&lt;/div&gt;\n  &lt;div&gt;Area #3&lt;/div&gt;\n&lt;/div&gt;&quot;]}],[0,{&quot;title&quot;:[0,&quot;Useful mixins&quot;],&quot;description&quot;:[0,&quot;A set of useful mixins to simplify your CSS code.&quot;],&quot;language&quot;:[0,&quot;css&quot;],&quot;code&quot;:[0,&quot;/**\n * Apply the `destyle` reset css\n */\n@s-destyle;\n\n/**\n * Apply the custom sugar css reset. It basically is `destyle` with these additions:\n * - Reset `mark` background color\n * - Font smoothing to \&quot;antialiased\&quot; for --webkit browsers\n * - Apply `user-select: none` to all elements except `input`, `textarea`, and `[contenteditable]`\n * - Remove the default outline\n */\n@s-reset;\n\n/**\n * Create a burger icon with ease\n */\n.my-menu {\n  @include s-burger-menu;\n    \n  &amp;:hover {\n    @include s-burger-menu-active;\n  }\n}&quot;]}]]]}" ssr client="load" opts="{&quot;name&quot;:&quot;CodeTabs&quot;,&quot;value&quot;:true}" await-children><div class="code-tabs"><nav class="code-tabs_nav"><ol class="code-tabs_tabs"><!--[--><li class="code-tabs_tab -active"><p class="code-tabs_tab-title typo-h4">Color management</p><p class="code-tabs_tab-description typo-caption">Define your colors and shades in your config and use them throughout your CSS.</p></li><li class="code-tabs_tab"><p class="code-tabs_tab-title typo-h4">Color manipulation</p><p class="code-tabs_tab-description typo-caption">Apply some color modifiers through shades of inline</p></li><li class="code-tabs_tab"><p class="code-tabs_tab-title typo-h4">The `current` color</p><p class="code-tabs_tab-description typo-caption">Use the &quot;current&quot; color in your code as if it was the &quot;currentColor&quot; CSS variable.</p></li><li class="code-tabs_tab"><p class="code-tabs_tab-title typo-h4">Typography management</p><p class="code-tabs_tab-description typo-caption">Define your typography styles in your config and use them throughout your CSS.</p></li><li class="code-tabs_tab"><p class="code-tabs_tab-title typo-h4">Spaces management</p><p class="code-tabs_tab-description typo-caption">Define your spaces in your config and use them throughout your CSS.</p></li><li class="code-tabs_tab"><p class="code-tabs_tab-title typo-h4">Media queries like a boss</p><p class="code-tabs_tab-description typo-caption">Write your media queries in a more efficient way with the @s-media rule.</p></li><li class="code-tabs_tab"><p class="code-tabs_tab-title typo-h4">Grid? You said grid?...</p><p class="code-tabs_tab-description typo-caption">Declare with ease complexe grid layouts and apply them as easily on your elements.</p></li><li class="code-tabs_tab"><p class="code-tabs_tab-title typo-h4">Useful mixins</p><p class="code-tabs_tab-description typo-caption">A set of useful mixins to simplify your CSS code.</p></li><!--]--></ol></nav><div class="code-tabs_content"><div class="code-tabs_code-wrapper"><!--[--><div class="code-tabs_code -active" style=""><div class="code"><s-code language="css" header="true" code="/**
+ * Declare your colors as simple css variables
+ * and use them across your code with the s-color() function.
+ * Shades are some variant of your colors that you can define
+ * and use them as well as the second parameter of the s-color() function.
+ */
+:root {
+  --s-color-main: #101010;
+  --s-color-accent: #f4ad20;
+  --s-color-complementary: #00fffb;
+
+  --s-shade-foreground: --lightness 90;      
+}
+  
+.btn {
+  background: s-color(main);
+  color: s-color(main, foreground);
+  
+  &amp;:hover {
+    background: s-color(accent);
+    color: s-color(accent, foreground);
+  }
+}"></s-code></div></div><div class="code-tabs_code" style="display:none;"><div class="code"><s-code language="css" header="true" code="/**
+ * Manipulate with ease your colors by applying some modifiers through
+ * shades or inline as the second parameter of the s-color() function.
+ * 
+ * --lighten &lt;percentage&gt;
+ * --darken &lt;percentage&gt;
+ * --saturate &lt;percentage&gt;
+ * --desaturate &lt;percentage&gt;
+ * --alpha &lt;percentage&gt;
+ * --spin &lt;degrees&gt;
+ */
+:root {
+  --s-color-main: #101010;
+  --s-color-accent: #f4ad20;
+
+  --s-shade-foreground: --lightness 90;      
+}
+.btn {
+  color: s-color(main, foreground);
+  
+  &amp;:hover {
+    color: s-color(accent, --darken 10 --saturate 20);
+  }
+}"></s-code></div></div><div class="code-tabs_code" style="display:none;"><div class="code"><s-code language="css" header="true" code="/**
+ * The &quot;current&quot; color is a special color that represents the current color of the element.
+ * You can apply it to any property you want and then,
+ * map the color you want to the &quot;current&quot; color like in this example.
+ */
+:root {
+  --s-color-main: #101010;
+  --s-color-accent: #f4ad20;
+  --s-color-complementary: #00fffb;
+  --s-color-current: s-color(main);
+}
+  
+.btn {
+  background: s-color(current);
+
+  &amp;:hover {
+    background: s-color(current, --lighten 10);
+  }
+
+  &amp;.-accent {
+    @s-map-color(accent);
+  }
+  &amp;.-complementary {
+    @s-map-color(complementary);
+  }
+}"></s-code></div></div><div class="code-tabs_code" style="display:none;"><div class="code"><s-code language="css" header="true" code="/**
+ * Declare your typography styles as simple css variables
+ */
+:root {
+  /* font families */
+  --s-font-family-sans: &#39;Roboto&#39;, sans-serif;
+  --s-font-family-serif: &#39;Merriweather&#39;, serif;
+
+  /* fonts */
+  --s-font-default: s-font-family(sans);
+  --s-font-lead: s-font-family(serif);
+
+  /* font sizes */
+  --s-size-h1: 32px;
+  --s-size-lead: 20px;
+  --s-size-p: 16px;
+
+  /* typography */
+  --s-typo-h1: s-font(title) s-size(h1) 1.4 0.1em uppercase underline;
+  --s-typo-lead: s-font(lead) s-size(lead) 1.6 0.05em;
+  --s-typo-p: s-font(default) s-size(p) 1.4;
+}
+
+/**
+ * Apply your typography styles to your elements with the @s-typo rule
+ */
+.my-title {
+  @s-typo(h1);
+}
+.my-paragraph {
+  @s-typo(p);
+}
+"></s-code></div></div><div class="code-tabs_code" style="display:none;"><div class="code"><s-code language="css" header="true" code="/**
+ * Declare your spacing styles as simple css variables
+ */
+:root {
+  --s-space-small: 10px;
+  --s-space-medium: 20px;
+  --s-space-large: 40px;
+}
+
+/**
+ * Apply your spacing styles to your elements with the `s-space` function
+ */
+.my-element {
+  padding: s-space(small); // 10px
+  padding: s-space(medium); // 20px
+  padding: s-space(large); // 40px
+}
+"></s-code></div></div><div class="code-tabs_code" style="display:none;"><div class="code"><s-code language="css" header="true" code="/**
+* Declare your breakpoints in your config through css variables
+* and use them throughout your CSS with the @s-media rule.
+* Special prefixes are available to write quick and efficient media queries.
+*/
+:root {
+  --s-setting-mobile-first: true;
+  --s-media-xs: 0px 474px;
+  --s-media-sm: 475px 639px;
+  --s-media-md: 640px 767px;
+  --s-media-lg: 768px 1023px;
+  --s-media-xl: 1024px;
+}
+.my-element {
+  background: red;
+
+  @media sm {
+    background: blue;
+  }
+  @media md {
+    background: green;
+  }
+  /**
+   * Special prefixes are available:
+   * e- : equal
+   * lt- : less than
+   * gt- : greater than
+   * lte- : less than or equal to
+   * gte- : greater than or equal to
+   */
+  @media lt-lg {
+    background: yellow;
+  }
+}"></s-code></div></div><div class="code-tabs_code" style="display:none;"><div class="code"><s-code language="css" header="true" code="/**
+ * Declare your grid layouts in your config through css variables
+ * --s-grid-&lt;name&gt;: &#39;&lt;template&gt;&#39; &lt;gap&gt;;
+ */
+:root {
+  --s-grid-mygrid: &#39;1 1 2 _ 3 3 3&#39; 20px;
+}
+/**
+ * Apply your grid layouts to your elements with the @s-grid rule
+ */
+.my-element {
+  /* registered grid */
+  @s-grid (mygrid);
+  /* custom grid */
+  @s-grid (&#39;1 1 2&#39;, 20px);
+}
+/**
+ * Generated grid
+ */
+|------------|------------|------------|
+| Area #1                 | Area #2    |
+|------------|------------|------------|
+| Area #3                              |
+|------------|------------|------------|
+/**
+ * The HTML structure
+ */
+&lt;div class=&quot;s-grid-mygrid&quot;&gt;
+  &lt;div&gt;Area #1&lt;/div&gt;
+  &lt;div&gt;Area #2&lt;/div&gt;
+  &lt;div&gt;Area #3&lt;/div&gt;
+&lt;/div&gt;"></s-code></div></div><div class="code-tabs_code" style="display:none;"><div class="code"><s-code language="css" header="true" code="/**
+ * Apply the `destyle` reset css
+ */
+@s-destyle;
+
+/**
+ * Apply the custom sugar css reset. It basically is `destyle` with these additions:
+ * - Reset `mark` background color
+ * - Font smoothing to &quot;antialiased&quot; for --webkit browsers
+ * - Apply `user-select: none` to all elements except `input`, `textarea`, and `[contenteditable]`
+ * - Remove the default outline
+ */
+@s-reset;
+
+/**
+ * Create a burger icon with ease
+ */
+.my-menu {
+  @include s-burger-menu;
+    
+  &amp;:hover {
+    @include s-burger-menu-active;
+  }
+}"></s-code></div></div><!--]--></div></div></div><!--astro:end--></astro-island> </section> <script type="module">function i(a){const t=a.querySelector(".get-started_hotkey");window.addEventListener("keydown",e=>{e.key==="Meta"&&t?.classList.add("-active")}),window.addEventListener("keyup",e=>{e.key==="Meta"&&t?.classList.remove("-active")})}const d=document.querySelector(".get-started");d&&i(d);</script> <section class="get-started" id="get-started"> <header class="get-started_header typo-format typo-rhythm"> <h2 class="typo-h2">Get Started</h2> <p class="typo-lead">
+Start using <code>@blackbyte/sugarcss</code> in your project with this quick
+      guide.
+</p> </header> <div class="get-started_steps" style="--step-idx: 0"> <div class="get-started_step"> <div class="get-started_step-metas typo-format"> <h3 class="typo-h3"> <span class="get-started_step-number">1.</span> Install the package
+</h3> <p class="typo-p">
+You can install <code>@blackbyte/sugarcss</code> using npm, yarn or pnpm.
+</p> </div> <div class="get-started_step-value"> <astro-island uid="1GCSVu" prefix="s1" component-url="/_astro/code.Da9yaGY2.js" component-export="default" renderer-url="/_astro/client.BPqZ3pGp.js" props="{&quot;language&quot;:[0,&quot;bash&quot;],&quot;header&quot;:[0,true],&quot;code&quot;:[0,&quot;npm install @blackbyte/sugarcss&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;Code&quot;,&quot;value&quot;:true}" await-children><div class="code"><s-code language="bash" header="true" code="npm install @blackbyte/sugarcss"></s-code></div><!--astro:end--></astro-island> </div> </div> <div class="get-started_step" style="--step-idx: 1"> <div class="get-started_step-metas typo-format"> <h3 class="typo-h3"> <span class="get-started_step-number">2.</span> Configure Vite
+</h3> <p class="typo-p">
+Make use of sugarcss throught <a href="https://vitejs.dev" title="Vite" target="_blank">Vite</a> is as simple as configuring it like in this example.
+</p> <p class="typo-p">
+For more configuration options, make sure to check the official <a href="https://lightningcss.dev/docs.html" title="Lightningcss documentation" target="_blank">Lightningcss documentation</a> </p> </div> <div class="get-started_step-value"> <astro-island uid="Z1cz3Nz" prefix="s2" component-url="/_astro/code.Da9yaGY2.js" component-export="default" renderer-url="/_astro/client.BPqZ3pGp.js" props="{&quot;language&quot;:[0,&quot;ts&quot;],&quot;filename&quot;:[0,&quot;vite.config.ts&quot;],&quot;header&quot;:[0,true],&quot;code&quot;:[0,&quot;import { sugarize } from &#39;@blackbyte/sugarcss&#39;;\n\nexport default {\n  css: {\n    transformer: &#39;lightningcss&#39;,\n    lightningcss: sugarize(),\n  }\n}&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;Code&quot;,&quot;value&quot;:true}" await-children><div class="code"><s-code filename="vite.config.ts" language="ts" header="true" code="import { sugarize } from &#39;@blackbyte/sugarcss&#39;;
+
+export default {
+  css: {
+    transformer: &#39;lightningcss&#39;,
+    lightningcss: sugarize(),
+  }
+}"></s-code></div><!--astro:end--></astro-island> </div> </div> <div class="get-started_step" style="--step-idx: 1"> <div class="get-started_step-metas typo-format"> <h3 class="typo-h3"> <span class="get-started_step-number">3.</span> Discover the API
+</h3> <p class="typo-p">
+Press <strong>CMD + P</strong> to open the command palette and start typing
+          to search for available functions.
+</p> </div> <div class="get-started_step-value"> <div class="get-started_hotkey"> <span class="get-started_hotkey-cmd">CMD</span> <span class="get-started_hotkey-plus">+</span> <span class="get-started_hotkey-p">P</span> </div> </div> </div> </div> </section>   </div> </div> </main> <footer class="footer"> <div class="container"> <div class="footer_brand"> <a href="/" title="SugarCSS"> <div class="footer_logo"> <svg viewBox="0 0 559 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M518.245 47.6066C518.445 52.5399 519.978 56.5066 522.845 59.5066C525.711 62.5066 529.711 64.0066 534.845 64.0066C537.178 64.0066 539.211 63.7399 540.945 63.2066C542.678 62.6733 544.145 61.9399 545.345 61.0066C546.611 60.0733 547.611 59.0066 548.345 57.8066C549.145 56.5399 549.778 55.2066 550.245 53.8066L557.645 55.8066C556.245 60.4066 553.645 64.1733 549.845 67.1066C546.111 69.9733 541.045 71.4066 534.645 71.4066C531.111 71.4066 527.845 70.8066 524.845 69.6066C521.911 68.3399 519.378 66.5733 517.245 64.3066C515.111 62.0399 513.445 59.3399 512.245 56.2066C511.045 53.0733 510.445 49.6066 510.445 45.8066V43.4066C510.445 39.9399 511.045 36.7066 512.245 33.7066C513.511 30.7066 515.245 28.1399 517.445 26.0066C519.645 23.8066 522.211 22.1066 525.145 20.9066C528.145 19.6399 531.378 19.0066 534.845 19.0066C538.911 19.0066 542.411 19.7733 545.345 21.3066C548.345 22.7733 550.778 24.6066 552.645 26.8066C554.578 29.0066 555.978 31.4066 556.845 34.0066C557.778 36.6066 558.245 39.0066 558.245 41.2066V47.6066H518.245ZM534.845 26.4066C532.645 26.4066 530.578 26.7733 528.645 27.5066C526.778 28.1733 525.111 29.1399 523.645 30.4066C522.245 31.6733 521.078 33.1733 520.145 34.9066C519.278 36.5733 518.711 38.4066 518.445 40.4066H550.445C550.311 38.2733 549.778 36.3399 548.845 34.6066C547.978 32.8733 546.811 31.4066 545.345 30.2066C543.945 29.0066 542.311 28.0733 540.445 27.4066C538.645 26.7399 536.778 26.4066 534.845 26.4066Z"
+        fill="black" />
+    <path
+        d="M463.614 20.4066H479.214V0.0065918H487.014V20.4066H506.214V27.6066H487.014V59.8066C487.014 61.8066 487.914 62.8066 489.714 62.8066H503.814V70.0066H486.914C484.647 70.0066 482.781 69.2733 481.314 67.8066C479.914 66.3399 479.214 64.4733 479.214 62.2066V27.6066H463.614V20.4066Z"
+        fill="black" />
+    <path
+        d="M450.083 61.0065H448.883C447.283 64.2065 445.183 66.7398 442.583 68.6065C439.983 70.4732 436.683 71.4065 432.683 71.4065C429.95 71.4065 427.417 70.9398 425.083 70.0065C422.817 69.1398 420.85 67.8065 419.183 66.0065C417.583 64.2065 416.317 61.9732 415.383 59.3065C414.517 56.6398 414.083 53.5398 414.083 50.0065V20.4065H421.883V49.0065C421.883 54.2065 422.95 58.0065 425.083 60.4065C427.217 62.8065 430.483 64.0065 434.883 64.0065C439.617 64.0065 443.317 62.4065 445.983 59.2065C448.717 55.9398 450.083 51.6065 450.083 46.2065V20.4065H457.883V82.2065C457.883 84.4732 457.15 86.3398 455.683 87.8065C454.283 89.2732 452.45 90.0065 450.183 90.0065H421.883V82.8065H447.383C449.183 82.8065 450.083 81.8065 450.083 79.8065V61.0065Z"
+        fill="black" />
+    <path
+        d="M362.853 70.0066H355.053V0.0065918H362.853V28.2066H364.053C365.786 25.2066 368.186 22.9399 371.253 21.4066C374.32 19.8066 377.653 19.0066 381.253 19.0066C384.32 19.0066 387.22 19.5733 389.953 20.7066C392.686 21.8399 395.086 23.4733 397.153 25.6066C399.286 27.7399 400.953 30.3733 402.153 33.5066C403.42 36.6399 404.053 40.2066 404.053 44.2066V46.2066C404.053 50.2733 403.453 53.8733 402.253 57.0066C401.053 60.1399 399.386 62.7733 397.253 64.9066C395.186 67.0399 392.753 68.6733 389.953 69.8066C387.153 70.8733 384.186 71.4066 381.053 71.4066C379.453 71.4066 377.82 71.2066 376.153 70.8066C374.486 70.4733 372.886 69.9399 371.353 69.2066C369.886 68.4066 368.52 67.4733 367.253 66.4066C365.986 65.2733 364.92 63.9399 364.053 62.4066H362.853V70.0066ZM379.453 64.0066C381.853 64.0066 384.053 63.6066 386.053 62.8066C388.053 61.9399 389.786 60.7399 391.253 59.2066C392.786 57.6733 393.953 55.8066 394.753 53.6066C395.62 51.4066 396.053 48.9399 396.053 46.2066V44.2066C396.053 41.5399 395.62 39.1399 394.753 37.0066C393.953 34.8066 392.786 32.9399 391.253 31.4066C389.786 29.8066 388.02 28.5733 385.953 27.7066C383.953 26.8399 381.786 26.4066 379.453 26.4066C377.12 26.4066 374.953 26.8733 372.953 27.8066C370.953 28.6733 369.186 29.9066 367.653 31.5066C366.186 33.1066 365.02 35.0399 364.153 37.3066C363.286 39.5066 362.853 41.9399 362.853 44.6066V45.8066C362.853 48.5399 363.286 51.0399 364.153 53.3066C365.02 55.5066 366.186 57.4066 367.653 59.0066C369.186 60.6066 370.953 61.8399 372.953 62.7066C374.953 63.5733 377.12 64.0066 379.453 64.0066Z"
+        fill="black" />
+    <path
+        d="M315.423 41.0066H317.123L336.023 20.4066H345.623V21.0066L325.023 43.7066V45.5066L348.023 69.4066V70.0066H338.423L317.323 48.2066H315.423V70.0066H307.623V0.0065918H315.423V41.0066Z"
+        fill="black" />
+    <path
+        d="M298.792 52.4066C298.259 55.1399 297.326 57.6733 295.992 60.0066C294.726 62.3399 293.092 64.3733 291.092 66.1066C289.092 67.7733 286.759 69.0733 284.092 70.0066C281.425 70.9399 278.459 71.4066 275.192 71.4066C271.726 71.4066 268.426 70.8399 265.292 69.7066C262.226 68.5733 259.526 66.9399 257.192 64.8066C254.859 62.6066 252.992 59.9399 251.592 56.8066C250.259 53.6733 249.592 50.0733 249.592 46.0066V44.8066C249.592 40.8066 250.259 37.2066 251.592 34.0066C252.992 30.8066 254.859 28.1066 257.192 25.9066C259.526 23.7066 262.226 22.0066 265.292 20.8066C268.426 19.6066 271.726 19.0066 275.192 19.0066C278.326 19.0066 281.226 19.4733 283.892 20.4066C286.559 21.3399 288.892 22.6733 290.892 24.4066C292.959 26.0733 294.625 28.0733 295.892 30.4066C297.226 32.7399 298.126 35.2733 298.592 38.0066L290.792 39.8066C290.592 38.0733 290.092 36.4066 289.292 34.8066C288.559 33.1399 287.526 31.7066 286.192 30.5066C284.926 29.2399 283.359 28.2399 281.492 27.5066C279.626 26.7733 277.459 26.4066 274.992 26.4066C272.592 26.4066 270.326 26.8733 268.192 27.8066C266.126 28.6733 264.292 29.9399 262.692 31.6066C261.092 33.2066 259.825 35.1399 258.892 37.4066C258.025 39.6733 257.592 42.1399 257.592 44.8066V46.0066C257.592 48.8066 258.025 51.3399 258.892 53.6066C259.825 55.8066 261.092 57.6733 262.692 59.2066C264.292 60.7399 266.159 61.9399 268.292 62.8066C270.426 63.6066 272.726 64.0066 275.192 64.0066C277.659 64.0066 279.792 63.6399 281.592 62.9066C283.459 62.1066 285.026 61.1066 286.292 59.9066C287.626 58.6399 288.659 57.2066 289.392 55.6066C290.192 54.0066 290.726 52.3399 290.992 50.6066L298.792 52.4066Z"
+        fill="black" />
+    <path
+        d="M232.162 61.6066H230.962C229.362 64.9399 227.128 67.4066 224.262 69.0066C221.462 70.6066 218.495 71.4066 215.362 71.4066C212.095 71.4066 209.062 70.8733 206.262 69.8066C203.462 68.6733 200.995 67.0399 198.862 64.9066C196.795 62.7066 195.162 60.0399 193.962 56.9066C192.762 53.7733 192.162 50.1399 192.162 46.0066V44.4066C192.162 40.3399 192.762 36.7399 193.962 33.6066C195.162 30.4733 196.795 27.8399 198.862 25.7066C200.995 23.5066 203.462 21.8399 206.262 20.7066C209.062 19.5733 212.028 19.0066 215.162 19.0066C218.562 19.0066 221.628 19.7733 224.362 21.3066C227.162 22.7733 229.362 25.0733 230.962 28.2066H232.162V20.4066H239.962V59.8066C239.962 61.8066 240.862 62.8066 242.662 62.8066H245.162V70.0066H239.862C237.595 70.0066 235.728 69.2733 234.262 67.8066C232.862 66.3399 232.162 64.4733 232.162 62.2066V61.6066ZM216.162 64.0066C218.495 64.0066 220.628 63.5733 222.562 62.7066C224.562 61.8399 226.262 60.6066 227.662 59.0066C229.062 57.4066 230.162 55.5066 230.962 53.3066C231.762 51.0399 232.162 48.5399 232.162 45.8066V44.6066C232.162 41.9399 231.762 39.5066 230.962 37.3066C230.162 35.0399 229.028 33.1066 227.562 31.5066C226.162 29.9066 224.462 28.6733 222.462 27.8066C220.528 26.8733 218.428 26.4066 216.162 26.4066C213.828 26.4066 211.695 26.8399 209.762 27.7066C207.828 28.5733 206.128 29.8066 204.662 31.4066C203.262 32.9399 202.162 34.8399 201.362 37.1066C200.562 39.3066 200.162 41.7399 200.162 44.4066V46.0066C200.162 51.6733 201.628 56.1066 204.562 59.3066C207.562 62.4399 211.428 64.0066 216.162 64.0066Z"
+        fill="black" />
+    <path
+        d="M146.931 62.8066H164.931V7.20659H147.531V0.0065918H172.731V62.8066H190.731V70.0066H146.931V62.8066Z"
+        fill="black" />
+    <path
+        d="M89.7007 62.2066H95.7007V7.80659H89.7007V0.0065918H118.001C121.334 0.0065918 124.267 0.473256 126.801 1.40659C129.401 2.33992 131.567 3.60659 133.301 5.2066C135.101 6.8066 136.434 8.73993 137.301 11.0066C138.234 13.2066 138.701 15.6066 138.701 18.2066V19.4066C138.701 21.3399 138.401 23.1066 137.801 24.7066C137.201 26.3066 136.367 27.7399 135.301 29.0066C134.234 30.2733 132.967 31.3733 131.501 32.3066C130.101 33.1733 128.567 33.8399 126.901 34.3066V35.5066C130.234 36.4399 133.034 38.2399 135.301 40.9066C137.567 43.5066 138.701 46.7066 138.701 50.5066V51.7066C138.701 54.3066 138.234 56.7399 137.301 59.0066C136.434 61.2066 135.101 63.1399 133.301 64.8066C131.567 66.4066 129.401 67.6733 126.801 68.6066C124.267 69.5399 121.334 70.0066 118.001 70.0066H89.7007V62.2066ZM104.101 62.2066H117.401C121.334 62.2066 124.534 61.2399 127.001 59.3066C129.467 57.3066 130.701 54.5733 130.701 51.1066V50.5066C130.701 46.9066 129.534 44.0733 127.201 42.0066C124.867 39.8733 121.701 38.8066 117.701 38.8066H104.101V62.2066ZM104.101 31.0066H117.701C121.701 31.0066 124.867 29.9733 127.201 27.9066C129.534 25.8399 130.701 23.0066 130.701 19.4066V18.8066C130.701 15.4066 129.467 12.7399 127.001 10.8066C124.534 8.80659 121.334 7.80659 117.401 7.80659H104.101V31.0066Z"
+        fill="black" />
+    <rect x="46.6666" y="46.6667" width="23.3333" height="23.3333" fill="black" />
+    <rect x="23.3334" y="46.6667" width="23.3333" height="23.3333" fill="black" />
+    <rect y="46.6667" width="23.3333" height="23.3333" fill="black" />
+    <rect x="46.6666" y="23.3333" width="23.3333" height="23.3333" fill="black" />
+    <rect x="23.3334" y="23.3333" width="23.3333" height="23.3333" fill="black" />
+    <rect x="46.6666" width="23.3333" height="23.3333" fill="black" />
+    <rect x="23.3334" width="23.3333" height="23.3333" fill="black" />
+    <rect width="23.3333" height="23.3333" fill="black" />
+</svg> </div> <h1 class="footer_title font-family-brand">SugarCSS</h1> </a> </div> <div class="footer_spacer"></div> <div class="footer_metas"> <p class="footer_version">v1.0.0-beta.1</p> <a class="footer_license" href="https://github.com/Blackbytespace/sugarcss/blob/main/LICENSE.md" target="_blank" title="MIT"> MIT </a> <a class="footer_github" href="https://github.com/blackbytespace/monorepo" title="Blackbyte monorepo on GitHub" target="_blank"> <s-icon name="github" provider="pixelarticons" type="brands"></s-icon> </a> </div> </div> </footer>  </body></html>

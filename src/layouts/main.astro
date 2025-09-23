@@ -3,26 +3,15 @@ interface Props {
   pageTitle: string;
 }
 
-import { MainLayout } from '@blackbyte/website-common';
+import { MainLayout, type TWebsiteConfig } from '@blackbyte/website-common';
 import '../components/index.css';
-import __websiteConfig from '../../website.config';
-import __packageJson from '../../package.json';
+import websiteConfig from '../../website.config';
 ---
 
 <script>
   import '../components/index';
 </script>
 
-<MainLayout
-  menu={__websiteConfig.menu}
-  version={__packageJson.version}
-  og={__websiteConfig.og}
-  license={__websiteConfig.license}
-  repository={__websiteConfig.repository}
-  title={__websiteConfig.title}
-  pageTitle={Astro.props.pageTitle}
-  description={__websiteConfig.description}
-  menu={__websiteConfig.menu}
->
+<MainLayout pageTitle={Astro.props.pageTitle} websiteConfig={websiteConfig}>
   <slot />
 </MainLayout>

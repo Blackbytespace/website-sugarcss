@@ -11,241 +11,271 @@ import Layout from '../layouts/main.astro';
 const samples: TCodeSamples = {
   samples: [
     {
-      title: 'Query like a pro',
+      title: 'Color management',
       description:
-        'A set of utility functions to query the DOM in a more efficient way.',
-      language: 'typescript',
-      code: `import {
-  querySelector,
-  querySelectorLive,
-  querySelectorUp
-} from '@blackbyte/sugar/dom'
+        'Define your colors and shades in your config and use them throughout your CSS.',
+      language: 'css',
+      code: `/**
+ * Declare your colors as simple css variables
+ * and use them across your code with the s-color() function.
+ * Shades are some variant of your colors that you can define
+ * and use them as well as the second parameter of the s-color() function.
+ */
+:root {
+  --s-color-main: #101010;
+  --s-color-accent: #f4ad20;
+  --s-color-complementary: #00fffb;
 
-// query the first element that is in the viewport
-const $elm = querySelector('.my-cool-item', {
-  inViewport: true,
-})
-
-// live query some elements when they are added to the DOM
-const query = querySelectorLive('.my-cool-item', ($elm, api) => {
-  // do something here with the detected element
-  // call api.cancel if you want to stop listening for this selector
-  api.cancel();
-});
-
-// query the first element that is a parent of the given selector
-const $elmUp = querySelectorUp($from, '.my-cool-item')`,
-    },
-    {
-      title: 'Is this a...?',
-      description:
-        'A bunch of utility functions to validate common data types like email, path, etc.',
-      language: 'typescript',
-      code: `import {
-  isEmail, isPath, isNode, isUrl,
-  isGlob, isCreditCard, isPlainObject,
-  isJson
-} from '@blackbyte/sugar/dom'
-
-isEmail('hello@blackbyte.com') // true
-isPath('/path/to/file') // true
-isNode() // true if runtime is node, false if not
-isUrl('https://blackbyte.space') // true
-isGlob('*.js') // true
-isCreditCard('4111111111111111') // true
-isPlainObject({}) // true
-isJson('{"key": "value"}') // true
-
-// and a lot more to discover
-
- `,
-    },
-    {
-      title: 'Cryptography',
-      description:
-        'A set of cryptographic functions for hashing and encoding data.',
-      language: 'typescript',
-      code: `import {
-  md5,
-  base64,
-  sha256,
-  sha512
-} from '@blackbyte/sugar/crypto'
+  --s-shade-foreground: --lightness 90;      
+}
   
-// md5 hash
-md5.encrypt('hello world')
-// 5eb63bbbe01eeed093cb22bb8f5acdc3
-
-// base64 encode
-base64.encrypt('hello world')
-// aGVsbG8gd29ybGQ=
-
-// sha256 hash
-sha256.encrypt('hello world')
-// b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9
-
-// sha512 hash
-sha512.encrypt('hello world')
-// 309ecc489c12d6eb4cc40f50c902f2b4d0ed77ee511a7c7a9bcd...
-
-// and a lot more to discover`,
+.btn {
+  background: s-color(main);
+  color: s-color(main, foreground);
+  
+  &:hover {
+    background: s-color(accent);
+    color: s-color(accent, foreground);
+  }
+}`,
     },
     {
-      title: 'Execute this when...',
+      title: 'Color manipulation',
+      description: 'Apply some color modifiers through shades of inline',
+      language: 'css',
+      code: `/**
+ * Manipulate with ease your colors by applying some modifiers through
+ * shades or inline as the second parameter of the s-color() function.
+ * 
+ * --lighten <percentage>
+ * --darken <percentage>
+ * --saturate <percentage>
+ * --desaturate <percentage>
+ * --alpha <percentage>
+ * --spin <degrees>
+ */
+:root {
+  --s-color-main: #101010;
+  --s-color-accent: #f4ad20;
+
+  --s-shade-foreground: --lightness 90;      
+}
+.btn {
+  color: s-color(main, foreground);
+  
+  &:hover {
+    color: s-color(accent, --darken 10 --saturate 20);
+  }
+}`,
+    },
+    {
+      title: 'The \`current\` color',
       description:
-        'A set of utility functions to execute code when certain conditions are met.',
-      language: 'typescript',
-      code: `import {
-  whenVisible,
-  whenInViewport,
-  whenNearViewport,
-  whenImageLoaded,
-  whenInteract
-} from '@blackbyte/sugar/dom'
+        'Use the "current" color in your code as if it was the "currentColor" CSS variable.',
+      language: 'css',
+      code: `/**
+ * The "current" color is a special color that represents the current color of the element.
+ * You can apply it to any property you want and then,
+ * map the color you want to the "current" color like in this example.
+ */
+:root {
+  --s-color-main: #101010;
+  --s-color-accent: #f4ad20;
+  --s-color-complementary: #00fffb;
+  --s-color-current: s-color(main);
+}
+  
+.btn {
+  background: s-color(current);
 
-// execute code when the element is visible
-whenVisible($elm).then(() => {
-  console.log('Element is visible');
-});
+  &:hover {
+    background: s-color(current, --lighten 10);
+  }
 
-// execute code when the element is in the viewport
-whenInViewport($elm).then(() => {
-  console.log('Element is in the viewport');
-});
+  &.-accent {
+    @s-map-color(accent);
+  }
+  &.-complementary {
+    @s-map-color(complementary);
+  }
+}`,
+    },
+    {
+      title: 'Typography management',
+      description:
+        'Define your typography styles in your config and use them throughout your CSS.',
+      language: 'css',
+      code: `/**
+ * Declare your typography styles as simple css variables
+ */
+:root {
+  /* font families */
+  --s-font-family-sans: 'Roboto', sans-serif;
+  --s-font-family-serif: 'Merriweather', serif;
 
-// execute code when the element is near the viewport
-whenNearViewport($elm).then(() => {
-  console.log('Element is near the viewport');
-});
+  /* fonts */
+  --s-font-default: s-font-family(sans);
+  --s-font-lead: s-font-family(serif);
 
-// execute code when the image is loaded
-whenImageLoaded($img).then(() => {
-  console.log('Image is loaded');
-});
+  /* font sizes */
+  --s-size-h1: 32px;
+  --s-size-lead: 20px;
+  --s-size-p: 16px;
 
-// execute code when the element is interacted with
-whenInteract($elm).then(() => {
-  console.log('Element is interacted with');
-});
+  /* typography */
+  --s-typo-h1: s-font(title) s-size(h1) 1.4 0.1em uppercase underline;
+  --s-typo-lead: s-font(lead) s-size(lead) 1.6 0.05em;
+  --s-typo-p: s-font(default) s-size(p) 1.4;
+}
 
-// and a lot more to discover
-
+/**
+ * Apply your typography styles to your elements with the @s-typo rule
+ */
+.my-title {
+  @s-typo(h1);
+}
+.my-paragraph {
+  @s-typo(p);
+}
 `,
     },
     {
-      title: 'Array utilities',
+      title: 'Spaces management',
       description:
-        'A set of utility functions to manipulate arrays in a more efficient way.',
-      language: 'typescript',
-      code: `import {
-  pickRandom,
-  pickSome,
-  intersection,
-  splitEvery,
-  unique
-} from '@blackbyte/sugar/array'
+        'Define your spaces in your config and use them throughout your CSS.',
+      language: 'css',
+      code: `/**
+ * Declare your spacing styles as simple css variables
+ */
+:root {
+  --s-space-small: 10px;
+  --s-space-medium: 20px;
+  --s-space-large: 40px;
+}
 
-// pick a random element from the array
-pickRandom([1, 2, 3, 4, 5])]
-
-// pick some elements from the array randomly
-pickSome([1, 2, 3, 4, 5], 2) // [2, 4]
-
-// find the intersection of two arrays
-intersection([1, 2, 3], [2, 3, 4]) // [2, 3]
-
-// split an array into chunks
-splitEvery([1, 2, 3, 4, 5], 2) // [[1, 2], [3, 4], [5]]
-
-// get unique elements from an array
-unique([1, 2, 2, 3, 4, 4, 5]) // [1, 2, 3, 4, 5]
-
-// and a lot more to discover
+/**
+ * Apply your spacing styles to your elements with the \`s-space\` function
+ */
+.my-element {
+  padding: s-space(small); // 10px
+  padding: s-space(medium); // 20px
+  padding: s-space(large); // 40px
+}
 `,
     },
     {
-      title: 'Convert colors',
+      title: 'Media queries like a boss',
       description:
-        'A set of utility functions to manipulate colors in a more efficient way.',
-      language: 'typescript',
-      code: `import {
-  hexToRgba,
-  hexToRgb,
-  hslaToHexa,
-  hslaToRgba,
-  parseColor,
-  convertColor
-} from '@blackbyte/sugar/array'
+        'Write your media queries in a more efficient way with the @s-media rule.',
+      language: 'css',
+      code: `/**
+* Declare your breakpoints in your config through css variables
+* and use them throughout your CSS with the @s-media rule.
+* Special prefixes are available to write quick and efficient media queries.
+*/
+:root {
+  --s-setting-mobile-first: true;
+  --s-media-xs: 0px 474px;
+  --s-media-sm: 475px 639px;
+  --s-media-md: 640px 767px;
+  --s-media-lg: 768px 1023px;
+  --s-media-xl: 1024px;
+}
+.my-element {
+  background: red;
 
-// convert hex to rgba
-hexToRgba('#ff0000') // { r: 255, g: 0, b: 0, a: 1, toString }
-
-// convert hex to rgb
-hexToRgb('#ff0000') // { r: 255, g: 0, b: 0, toString }
-
-// convert hsla to hexa
-hslaToHexa('hsla(0, 100%, 50%, 1)') // #ff0000ff
-
-// convert hsla to rgba
-hslaToRgba('hsla(0, 100%, 50%, 1)') // { r: 255, g: 0, b: 0, a: 1, toString } 
-
-// parse a color string
-parseColor('#ff0000') // { r: 255, g: 0, b: 0, a: 1, toString }
-parseColor('#ff0000', 'hsla') // { h: 0, s: 100, l: 50, a: 1, toString }
-
-// convert a color to a specific format
-convertColor('#ff0000', 'rgba') // { r: 255, g: 0, b: 0, a: 1, toString }
-convertColor('#ff0000', 'hsl') // { h: 0, s: 100, l: 50, toString }
-convertColor('#ff0000', 'hex') // #ff0000
-
-// and a lot more to discover
-
-`,
+  @media sm {
+    background: blue;
+  }
+  @media md {
+    background: green;
+  }
+  /**
+   * Special prefixes are available:
+   * e- : equal
+   * lt- : less than
+   * gt- : greater than
+   * lte- : less than or equal to
+   * gte- : greater than or equal to
+   */
+  @media lt-lg {
+    background: yellow;
+  }
+}`,
     },
     {
-      title: 'Time is... time',
+      title: 'Grid? You said grid?...',
       description:
-        'A set of utility functions to manipulate time in a more efficient way.',
-      language: 'typescript',
-      code: `import {
-  convertTime,¨¨
-  formatDuration,
-  sleep,
-  timeAgo
-} from '@blackbyte/sugar/array'
+        'Declare with ease complexe grid layouts and apply them as easily on your elements.',
+      language: 'css',
+      code: `/**
+ * Declare your grid layouts in your config through css variables
+ * --s-grid-<name>: '<template>' <gap>;
+ */
+:root {
+  --s-grid-mygrid: '1 1 2 _ 3 3 3' 20px;
+}
+/**
+ * Apply your grid layouts to your elements with the @s-grid rule
+ */
+.my-element {
+  /* registered grid */
+  @s-grid (mygrid);
+  /* custom grid */
+  @s-grid ('1 1 2', 20px);
+}
+/**
+ * Generated grid
+ */
+|------------|------------|------------|
+| Area #1                 | Area #2    |
+|------------|------------|------------|
+| Area #3                              |
+|------------|------------|------------|
+/**
+ * The HTML structure
+ */
+<div class="s-grid-mygrid">
+  <div>Area #1</div>
+  <div>Area #2</div>
+  <div>Area #3</div>
+</div>`,
+    },
+    {
+      title: 'Useful mixins',
+      description: 'A set of useful mixins to simplify your CSS code.',
+      language: 'css',
+      code: `/**
+ * Apply the \`destyle\` reset css
+ */
+@s-destyle;
 
-// convert time from one format to another
-convertTime('10s', 'ms') // => 10000
-convertTime('10days', 'hours') // => 240
-convertTime('10h', 'minutes') // => 600
+/**
+ * Apply the custom sugar css reset. It basically is \`destyle\` with these additions:
+ * - Reset \`mark\` background color
+ * - Font smoothing to "antialiased" for --webkit browsers
+ * - Apply \`user-select: none\` to all elements except \`input\`, \`textarea\`, and \`[contenteditable]\`
+ * - Remove the default outline
+ */
+@s-reset;
 
-// format a duration in a human readable way
-formatDuration(1000) // => 1s
-formatDuration(60000) // => 1m
-
-// sleep for a given time
-await sleep(1000) // => waits for 1 second
-
-// get the time ago from a date
-timeAgo(new Date('2023-01-01')) // => "9 months ago"
-timeAgo(1704067200000) // => "9 months ago"
-
-// and a lot more to discover
-
-`,
+/**
+ * Create a burger icon with ease
+ */
+.my-menu {
+  @include s-burger-menu;
+    
+  &:hover {
+    @include s-burger-menu-active;
+  }
+}`,
     },
   ],
 };
 ---
 
-<Layout pageTitle="SugarCSS">
-  <Welcome
-    title={websiteConfig.welcome.title}
-    description={websiteConfig.welcome.description}
-    getStarted={websiteConfig.getStarted}
-    repository={websiteConfig.repository}
-    install={websiteConfig.install}
-  />
+<Layout pageTitle="Welcome">
+  <Welcome websiteConfig={websiteConfig} />
   <CodeSamples samples={samples.samples} />
   <GetStarted />
 </Layout>

@@ -1,7 +1,7 @@
 ---
-title: 's-menu'
+title: 's-burger-menu'
 namespace: '@blackbyte.sugarcss.css.mixins'
-description: 'This mixin allows you to create a menu icon easily. Note that you can use the `s-menu-active` mixin to apply the active state to the menu icon. The color applyed to the menu icon is the `current` color.'
+description: 'This mixin allows you to create a burger menu icon easily. Note that you can use the `s-menu-active` mixin to apply the active state to the menu icon. The color applyed to the menu icon is the `current` color.'
 type: 'Mixin'
 status: 'stable'
 since: '1.0.0'
@@ -9,7 +9,7 @@ platform: '[{"name":"css","description":""}]'
 author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@blackbyte.space"}'
 ---
 <div class="docmap -mdx">
-# s-menu
+# s-burger-menu
 <div class="docmap_metas">
 <div class="docmap_type"><span class="docmap_type-label">Type:</span><span class="docmap_type-value">Mixin</span></div>
 <div class="docmap_status"><span class="docmap_status-label">Status:</span><span class="docmap_status-value -stable">stable</span></div>
@@ -18,7 +18,7 @@ author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"http
 </div>
 <div class="docmap_namespace">@blackbyte.sugarcss.css.mixins</div>
 <div class="docmap_description typo-lead typo-format">
-This mixin allows you to create a menu icon easily.
+This mixin allows you to create a burger menu icon easily.
 Note that you can use the `s-menu-active` mixin to apply the active state to the menu icon.
 The color applyed to the menu icon is the `current` color.
 </div>
@@ -36,10 +36,10 @@ The color applyed to the menu icon is the `current` color.
 <s-code language="css" header>
 ```css
 .my-menu {
-  @include s-menu;
+  @include s-burger-menu;
 
   &:hover {
-    @include s-menu-active;
+    @include s-burger-menu-active;
   }
 }
 ```

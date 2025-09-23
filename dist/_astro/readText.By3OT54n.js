@@ -1,0 +1,1 @@
+function i(i){var r;return null!==(r=navigator?.clipboard)&&void 0!==r&&r.writeText?navigator.clipboard.writeText(i):Promise.reject("The Clipboard API is not available.")}export{i as c};

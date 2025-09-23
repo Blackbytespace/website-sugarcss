@@ -24,32 +24,70 @@ import './getStarted.css';
 </script>
 
 <section class="get-started" id="get-started">
-  <header class="get-started_header typo-rhythm">
+  <header class="get-started_header typo-format typo-rhythm">
     <h2 class="typo-h2">Get Started</h2>
     <p class="typo-lead">
-      Start using <code>@blackbyte/sugar</code> in your project with this quick guide.
+      Start using <code>@blackbyte/sugarcss</code> in your project with this quick
+      guide.
     </p>
   </header>
 
   <div class="get-started_steps" style="--step-idx: 0">
     <div class="get-started_step">
-      <div class="get-started_step-metas">
+      <div class="get-started_step-metas typo-format">
         <h3 class="typo-h3">
           <span class="get-started_step-number">1.</span> Install the package
         </h3>
         <p class="typo-p">
-          You can install <code>@blackbyte/sugar</code> using npm, yarn or pnpm.
+          You can install <code>@blackbyte/sugarcss</code> using npm, yarn or pnpm.
         </p>
       </div>
       <div class="get-started_step-value">
-        <Code language="bash" header code="npm install @blackbyte/sugar" />
+        <Code language="bash" header code="npm install @blackbyte/sugarcss" />
       </div>
     </div>
 
     <div class="get-started_step" style="--step-idx: 1">
-      <div class="get-started_step-metas">
+      <div class="get-started_step-metas typo-format">
         <h3 class="typo-h3">
-          <span class="get-started_step-number">2.</span> Discover the API
+          <span class="get-started_step-number">2.</span> Configure Vite
+        </h3>
+        <p class="typo-p">
+          Make use of sugarcss throught <a
+            href="https://vitejs.dev"
+            title="Vite"
+            target="_blank">Vite</a
+          > is as simple as configuring it like in this example.
+        </p>
+        <p class="typo-p">
+          For more configuration options, make sure to check the official <a
+            href="https://lightningcss.dev/docs.html"
+            title="Lightningcss documentation"
+            target="_blank">Lightningcss documentation</a
+          >
+        </p>
+      </div>
+      <div class="get-started_step-value">
+        <Code
+          language="ts"
+          filename="vite.config.ts"
+          header
+          code=`import { sugarize } from '@blackbyte/sugarcss';
+
+export default {
+  css: {
+    transformer: 'lightningcss',
+    lightningcss: sugarize(),
+  }
+}`
+        />
+      </div>
+    </div>
+
+    <div class="get-started_step" style="--step-idx: 1">
+      <div class="get-started_step-metas typo-format">
+        <h3 class="typo-h3">
+          <span class="get-started_step-number">3.</span> Discover the API
         </h3>
         <p class="typo-p">
           Press <strong>CMD + P</strong> to open the command palette and start typing
@@ -62,28 +100,6 @@ import './getStarted.css';
           <span class="get-started_hotkey-plus">+</span>
           <span class="get-started_hotkey-p">P</span>
         </div>
-      </div>
-    </div>
-
-    <div class="get-started_step" style="--step-idx: 2">
-      <div class="get-started_step-metas">
-        <h3 class="typo-h3">
-          <span class="get-started_step-number">3.</span> Import what you need
-        </h3>
-        <p class="typo-p">
-          Import the components you need from <code>@blackbyte/sugar</code> in your
-          project files.
-        </p>
-      </div>
-      <div class="get-started_step-value">
-        <Code
-          language="ts"
-          header
-          code={`import { querySelectorLive } from '@blackbyte/sugar/dom';
-import { pickRandom, unique } from '@blackbyte/sugar/array';
-import { sleep, timeAgo, formatDuration } from '@blackbyte/sugar/datetime';
-// etc... `}
-        />
       </div>
     </div>
   </div>
