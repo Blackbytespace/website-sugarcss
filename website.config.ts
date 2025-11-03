@@ -31,6 +31,9 @@ export default {
     imageUrl:
       'https://raw.githubusercontent.com/Blackbytespace/sugarcss/refs/heads/main/assets/blackbyte-sugarcss-og.png',
   },
+  discord: {
+    url: 'https://discord.gg/ZJvmd6cM',
+  },
   menu: [
     {
       type: 'group',
