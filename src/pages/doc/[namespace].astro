@@ -25,6 +25,9 @@ const allDoc = await getCollection('sugarcss'),
 let DocItem;
 for (let [i, docObj] of allDoc.entries()) {
   if (toSlug(docObj.id) === params.namespace) {
+    if (!docObj?.render) {
+      continue;
+    }
     DocItem = await docObj.render();
     break;
   }

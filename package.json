@@ -17,7 +17,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.9",
     "@astrojs/mdx": "^5.0.4",
-    "@astrojs/sitemap": "^3.5.1",
+    "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vue": "^6.0.1",
     "@blackbyte/icon-element": "^1.0.0-beta.1",
     "@blackbyte/sugar": "^1.0.0-beta.28",
@@ -26,7 +26,7 @@
     "@fontsource/bungee-spice": "^5.2.9",
     "@fontsource/rock-salt": "^5.2.6",
     "animejs": "^4.0.2",
-    "astro": "^6.2.1",
+    "astro": "^6.3.1",
     "astro-compress": "^2.3.6",
     "astro-purgecss": "^6.0.1",
     "lightningcss": "1.30.1",
