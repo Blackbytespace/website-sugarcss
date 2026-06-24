@@ -2,7 +2,7 @@
   "private": true,
   "name": "@blackbyte/website-sugarcss",
   "type": "module",
-  "version": "1.0.0-beta.28",
+  "version": "1.0.0-beta.29",
   "repository": {
     "url": "https://github.com/blackbytespace/monorepo"
   },
@@ -22,7 +22,7 @@
     "@astrojs/vue": "^6.0.1",
     "@blackbyte/icon-element": "^1.0.0-beta.1",
     "@blackbyte/sugar": "^1.0.0-beta.28",
-    "@blackbyte/sugarcss": "^1.0.0-beta.20",
+    "@blackbyte/sugarcss": "^1.0.0-beta.29",
     "@blackbyte/website-common": "^1.0.0-beta.1",
     "@fontsource/bungee-spice": "^5.2.9",
     "@fontsource/rock-salt": "^5.2.6",
