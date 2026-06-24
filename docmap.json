@@ -417,6 +417,72 @@
                 "relPath": "src/node/visitors/rules/tooltip.ts",
                 "children": {}
             },
+            "@blackbyte.sugarcss.css.rule.s-shadow": {
+                "id": "@blackbyte.sugarcss.css.rule.s-shadow",
+                "name": "s-shadow",
+                "type": {
+                    "types": [
+                        {
+                            "type": "AtRule"
+                        }
+                    ],
+                    "raw": "AtRule"
+                },
+                "param": {
+                    "name": {
+                        "name": "name",
+                        "type": {
+                            "types": [
+                                {
+                                    "type": "String"
+                                }
+                            ],
+                            "raw": "String"
+                        },
+                        "description": "The transition name you want to apply",
+                        "defaultStr": ""
+                    }
+                },
+                "return": {
+                    "type": {
+                        "types": [
+                            {
+                                "type": "Css"
+                            }
+                        ],
+                        "raw": "Css"
+                    },
+                    "description": "The generated css"
+                },
+                "platform": [
+                    {
+                        "name": "css",
+                        "description": ""
+                    }
+                ],
+                "description": "This declaration allows you to apply a registered shadow easily.\nTo be able to use this, you need to register at least 1 shadow like in the example below:",
+                "namespace": "@blackbyte.sugarcss.css.rule",
+                "status": "stable",
+                "snippet": {
+                    "label": "@s-shadow($1);"
+                },
+                "example": [
+                    {
+                        "language": "css",
+                        "code": ":root {\n   --s-shadow-default: 0 2px 4px rgba(0, 0, 0, 0.1);\n   --s-shadow-special: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n\n.my-element {\n     @s-shadow();\n}\n\n.my-other-element {\n    @s-shadow(special);\n}"
+                    }
+                ],
+                "since": "0.0.1",
+                "author": {
+                    "name": "Olivier Bossel",
+                    "email": "olivier.bossel@gmail.com",
+                    "url": "https://hello@blackbyte.space"
+                },
+                "filename": "shadow.ts",
+                "extension": "ts",
+                "relPath": "src/node/visitors/rules/shadow.ts",
+                "children": {}
+            },
             "@blackbyte.sugarcss.css.rule.s-scrollbar": {
                 "id": "@blackbyte.sugarcss.css.rule.s-scrollbar",
                 "name": "s-scrollbar",
@@ -1508,6 +1574,69 @@
                 "filename": "size.ts",
                 "extension": "ts",
                 "relPath": "src/node/visitors/functions/size.ts",
+                "children": {}
+            },
+            "@blackbyte.sugarcss.css.function.s-shadow": {
+                "id": "@blackbyte.sugarcss.css.function.s-shadow",
+                "name": "s-shadow",
+                "type": {
+                    "types": [
+                        {
+                            "type": "Function"
+                        }
+                    ],
+                    "raw": "Function"
+                },
+                "param": {
+                    "shadow": {
+                        "name": "shadow",
+                        "type": {
+                            "types": [
+                                {
+                                    "type": "String"
+                                }
+                            ],
+                            "raw": "String"
+                        },
+                        "description": "The shadow you want to apply",
+                        "defaultStr": ""
+                    }
+                },
+                "return": {
+                    "type": {
+                        "types": [
+                            {
+                                "type": "Css"
+                            }
+                        ],
+                        "raw": "Css"
+                    },
+                    "description": "The generated css"
+                },
+                "platform": [
+                    {
+                        "name": "css",
+                        "description": ""
+                    }
+                ],
+                "description": "This function allows you to apply a registered shadow.",
+                "namespace": "@blackbyte.sugarcss.css.function",
+                "status": "stable",
+                "example": [
+                    {
+                        "language": "css",
+                        "code": ":root {\n     --s-shadow-small: 0 2px 4px rgba(0, 0, 0, 0.1);\n     --s-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);\n     --s-shadow-large: 0 8px 16px rgba(0, 0, 0, 0.1);\n}\n\n.my-element {\n   box-shadow: s-shadow(small);\n   box-shadow: s-shadow(medium);\n   box-shadow: s-shadow(large);\n}"
+                    }
+                ],
+                "since": "0.0.1",
+                "author": {
+                    "name": "Olivier Bossel",
+                    "email": "olivier.bossel@gmail.com",
+                    "url": "https://hello@blackbyte.space"
+                },
+                "filename": "shadow.ts",
+                "extension": "ts",
+                "relPath": "src/node/visitors/functions/shadow.ts",
                 "children": {}
             },
             "@blackbyte.sugarcss.css.function.s-responsive": {
@@ -2652,6 +2781,58 @@
                 "filename": "size.ts",
                 "extension": "ts",
                 "relPath": "src/node/visitors/declarations/size.ts",
+                "children": {}
+            },
+            "@blackbyte.sugarcss.css.declaration.s-shadow": {
+                "id": "@blackbyte.sugarcss.css.declaration.s-shadow",
+                "name": "s-shadow",
+                "type": {
+                    "types": [
+                        {
+                            "type": "Declaration"
+                        }
+                    ],
+                    "raw": "Declaration"
+                },
+                "param": {
+                    "value": {
+                        "name": "value",
+                        "type": {
+                            "types": [
+                                {
+                                    "type": "String"
+                                }
+                            ],
+                            "raw": "String"
+                        },
+                        "description": "The value to register for your shadow",
+                        "defaultStr": ""
+                    }
+                },
+                "platform": [
+                    {
+                        "name": "css",
+                        "description": ""
+                    }
+                ],
+                "description": "This variables allows you to register a shadow value that you can use in your css easily.\nthrough the s-shadow() function or the @s-shadow() rule.\nYou can register as many shadow as you want.",
+                "namespace": "@blackbyte.sugarcss.css.declaration",
+                "status": "stable",
+                "example": [
+                    {
+                        "language": "css",
+                        "code": ":root {\n     --s-shadow-small: 0 2px 4px rgba(0, 0, 0, 0.1);\n     --s-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);\n     --s-shadow-large: 0 8px 16px rgba(0, 0, 0, 0.1);\n}\n\n.my-element {\n   box-shadow: s-shadow(small); // 10px\n   box-shadow: s-shadow(medium); // 20px\n   box-shadow: s-shadow(large); // 40px\n}"
+                    }
+                ],
+                "since": "0.0.1",
+                "author": {
+                    "name": "Olivier Bossel",
+                    "email": "olivier.bossel@gmail.com",
+                    "url": "https://hello@blackbyte.space"
+                },
+                "filename": "shadow.ts",
+                "extension": "ts",
+                "relPath": "src/node/visitors/declarations/shadow.ts",
                 "children": {}
             },
             "@blackbyte.sugarcss.css.declaration.s-shade": {
