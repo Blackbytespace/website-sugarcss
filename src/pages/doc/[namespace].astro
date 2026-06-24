@@ -1,7 +1,7 @@
 ---
 // @ts-nocheck
 import { Menu, toSlug } from '@blackbyte/website-common';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import docmapJson from '../../../docmap.json';
 import Layout from '../../layouts/main.astro';
 
@@ -25,10 +25,7 @@ const allDoc = await getCollection('sugarcss'),
 let DocItem;
 for (let [i, docObj] of allDoc.entries()) {
   if (toSlug(docObj.id) === params.namespace) {
-    if (!docObj?.render) {
-      continue;
-    }
-    DocItem = await docObj.render();
+    DocItem = await render(docObj);
     break;
   }
 }

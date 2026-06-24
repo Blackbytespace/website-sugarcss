@@ -1,0 +1,67 @@
+---
+title: 's-focus'
+namespace: '@blackbyte.sugarcss.css.declaration'
+description: 'This allows you to register a focus style. It can be used through the `@s-focus` at-rule that will apply the registered focus style to the current selector.'
+type: 'Declaration'
+status: 'stable'
+since: '0.0.1'
+platform: '[{"name":"css","description":""}]'
+author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"https://hello@blackbyte.space"}'
+---
+<div class="docmap -mdx">
+# s-focus
+<div class="docmap_metas">
+<div class="docmap_type"><span class="docmap_type-label">Type:</span><span class="docmap_type-value">Declaration</span></div>
+<div class="docmap_status"><span class="docmap_status-label">Status:</span><span class="docmap_status-value -stable">stable</span></div>
+<div class="docmap_since"><span class="docmap_since-label">Since:</span><span class="docmap_since-value">0.0.1</span></div>
+<div class="docmap_platform"><span class="docmap_platform-label">Platform:</span><span class="docmap_platform-value -css">css</span></div>
+</div>
+<div class="docmap_namespace">@blackbyte.sugarcss.css.declaration</div>
+<div class="docmap_description typo-lead typo-format">
+This allows you to register a focus style.
+It can be used through the `@s-focus` at-rule that will apply the registered focus style to the current selector.
+</div>
+<div class="docmap_params">
+## Params
+<ol class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">size<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">Number</span>
+<p class="docmap_description">The size of the focus in pixels</p>
+</li>
+<li class="docmap_item">
+<span class="docmap_name">style.<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The style of the focus like &quot;solid&quot;&comma; &quot;dashed&quot;&comma; etc&period;&period;&period;</p>
+</li>
+<li class="docmap_item">
+<span class="docmap_name">color<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The color value to apply</p>
+</li>
+</ol>
+</div>
+<div class="docmap_examples">
+## Example
+<s-code language="css" header>
+```css
+:root {
+   --s-focus-default: 2px solid red;
+   --s-focus-links: 3px dashed blue;
+}
+
+.my-element {
+  @s-focus(); / apply the default focus style *\/
+  @s-focus(links); / apply the links focus style *\/
+}
+```
+</s-code>
+</div>
+<div class="docmap_author">
+## Author
+<ul class="docmap_list">
+<li class="docmap_item">
+<span class="docmap_name">Olivier Bossel</span>
+<span class="docmap_email">olivier.bossel@gmail.com</span>
+<a href="https://hello@blackbyte.space" target="_blank" class="docmap_url">https://hello@blackbyte.space</a>
+</li>
+</ul>
+</div>
+</div>

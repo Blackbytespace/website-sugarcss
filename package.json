@@ -2,7 +2,7 @@
   "private": true,
   "name": "@blackbyte/website-sugarcss",
   "type": "module",
-  "version": "1.0.0-beta.20",
+  "version": "1.0.0-beta.28",
   "repository": {
     "url": "https://github.com/blackbytespace/monorepo"
   },
@@ -12,7 +12,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "doc.build": "(cd ../sugarcss && npm run doc.build)"
+    "doc.build": "(cd ../sugarcss && npm run doc.build)",
+    "deploy": "npm run doc.build && npm run build && rsync -azP --delete ./dist/ 0y66vz_blackbyte@0y66vz.ftp.infomaniak.com:sites/sugarcss.blackbyte.space/"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

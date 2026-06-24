@@ -1,7 +1,7 @@
 ---
 title: 's-responsive'
 namespace: '@blackbyte.sugarcss.css.function'
-description: 'This function allows you to generate a responsive value based on the provided settings. It uses the CSS clamp function to generate a value that will be responsive between a minimum and a maximum value based on the viewport width. You can define custom breakpoints and values for each responsive value using css variables.'
+description: 'This function allows you to create a responsive value that will adapt between a minimum and a maximum value based on the viewport width or any other relative unit (cqw, etc...). The function takes a minimum value, a maximum value, and optionally the breakpoints or relative unit to use for the calculation. It then generates a CSS `clamp()` function that will ensure the value stays within the specified range while being responsive to the viewport size.'
 type: 'Function'
 status: 'stable'
 since: '0.0.1'
@@ -18,9 +18,9 @@ author: '{"name":"Olivier Bossel","email":"olivier.bossel@gmail.com","url":"http
 </div>
 <div class="docmap_namespace">@blackbyte.sugarcss.css.function</div>
 <div class="docmap_description typo-lead typo-format">
-This function allows you to generate a responsive value based on the provided settings.
-It uses the CSS clamp function to generate a value that will be responsive between a minimum and a maximum value based on the viewport width.
-You can define custom breakpoints and values for each responsive value using css variables.
+This function allows you to create a responsive value that will adapt between a minimum and a maximum value based on the viewport width or any other relative unit (cqw, etc...).
+The function takes a minimum value, a maximum value, and optionally the breakpoints or relative unit to use for the calculation.
+It then generates a CSS `clamp()` function that will ensure the value stays within the specified range while being responsive to the viewport size.
 </div>
 <div class="docmap_params">
 ## Params
@@ -32,6 +32,18 @@ You can define custom breakpoints and values for each responsive value using css
 <li class="docmap_item">
 <span class="docmap_name">max<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">Number</span>
 <p class="docmap_description">The maximum value for the responsive value</p>
+</li>
+<li class="docmap_item">
+<span class="docmap_name">[breakpointMinOrRelativeUnit]<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The minimum breakpoint for the responsive value or the relative unit to use for the calculation &lpar;default&colon; vw&rpar;</p>
+</li>
+<li class="docmap_item">
+<span class="docmap_name">[breakpointMax] The maximum breakpoint for the responsive value (default: 1200px or the value defined in the config)<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description"></p>
+</li>
+<li class="docmap_item">
+<span class="docmap_name">[relativeUnit]<span class="docmap_required">*</span></span><span class="docmap_default">-</span> <span class="docmap_type">String</span>
+<p class="docmap_description">The relative unit to use for the calculation &lpar;default&colon; vw&rpar;</p>
 </li>
 </ol>
 </div>
@@ -51,12 +63,17 @@ You can define custom breakpoints and values for each responsive value using css
 :root {
    / breakpoints *\/
    --s-responsive-breakpoints: 768px 1200px;
-   / min max *\/
-   --s-responsive-default: 30px 50px;
 }
 .my-element {
+   / responsive value 10px-100px between breakpoint 768px and 1200px *\/
    font-size: s-responsive(10px, 100px);
-   font-size: s-responsive(h1);
+
+   / responsive value 10px-100px between breakpoint 300px and 1500px *\/
+   font-size: s-responsive(10px, 100px, 300px, 1500px);
+
+   / responsive value 30px-50px between container 100px and 400px *\/
+   / require one parent to have container-type defined *\/
+   font-size: s-responsive(30px, 50px, 100px, 400px, cqw);
 }
 ```
 </s-code>
